@@ -1,14 +1,21 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/404/404",
+    
     "pages/logs/logs",
     "pages/sign/sign",
-    "pages/404/404",
+    "pages/passwd_back/passwd_back",
+    
     "pages/trainer/trainer",
     "pages/student/student",
-    "pages/info_put/info_put",
-    "pages/info_print/infor_print",
-    "page/choise/choise"
+    "pages/sutdent_select_trainer/sutdent_select_trainer",
+    "pages/unsign/unsign",
+
+    "pages/bodydata_writer/bodydata_writer",
+    "pages/bodydata_select/bodydata_select",
+    "pages/bodydata_read/bodydata_read",
+    "pages/bodydata_plot/bodydata_plot"
   ],
   "window":{
     "backgroundTextStyle":"light",
