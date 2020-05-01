@@ -4,6 +4,7 @@
     "pages/404/404",
     
     "pages/logs/logs",
+    "pages/login/login",
     "pages/sign/sign",
     "pages/passwd_back/passwd_back",
     
