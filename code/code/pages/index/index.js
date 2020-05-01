@@ -29,6 +29,7 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
+        
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -42,6 +43,18 @@ Page({
         }
       })
     }
+    wx.request({
+      url: 'http://localhost', //服务器地址
+      data: {
+          name: 'bob'//请求参数
+      },
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function (res) {
+          console.log(res.data)
+      }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)
