@@ -67,7 +67,17 @@ page{
   border: 0.1rpx solid #ccc;
   border-radius: 40rpx;
 }
- 
+.signBtn {
+  size: 60px;
+  width: 45px;
+  height: 80rpx;
+  line-height: 45rpx;
+  margin-top: 15rpx;
+  color: #fff;
+  background-color:#7e8ef0;
+  border: 0.1rpx solid #ccc;
+  border-radius: 40rpx;
+}
 
 .nameImage, .keyImage {
   margin-right: 10px;

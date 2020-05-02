@@ -17,6 +17,8 @@
      <!--按钮-->  
     <view class="loginBtnView">  
       <button class="loginBtn" size="{{primarySize}}"  form-type='submit' disabled='{{disabled}}'>登录</button>  
+      <button class="signBtn" bindtap="goto_sign">新号注册</button>  
+      <button class="signBtn" bindtap="goto_passwd_back">找回密码</button>  
     </view>  
     </form>
   
