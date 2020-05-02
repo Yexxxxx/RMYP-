@@ -135,7 +135,32 @@ Page({
   /**
    * 用户点击右上角分享
    */
+  getNo:function(e){
+    this.setData({
+      no: e.detail.value 
+    })
+    console.log(this.data.no)
+  },
+  getNo:function(e){
+    this.setData({
+      pwd: e.detail.value 
+    })
+    console.log(this.data.pwd)
+  },
+  login:function(){
+    wx.request({
+      url: 'http://www.hengyishun.cn/login/login',
+      data:({
+        no:this.data.no,
+        pwd:this.data.pwd,
+      })
+      ,
+      success(res){
+        console.log(res.data);
+      }
+    })
+  },
   onShareAppMessage: function () {
- 
-  }
+  
+  },
 })
