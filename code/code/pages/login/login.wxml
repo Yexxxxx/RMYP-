@@ -7,27 +7,11 @@
   <form bindsubmit="formSubmit" class='form'>
     <view class="myno">
     <!-- 学号 -->
-      <view class="weui-cell weui-cell_input">
-      <image class="nameImage" src="/images/name.png"></image>
-          <!-- <view class="weui-cell__hd">
-              <view class="weui-label">学号</view>
-          </view> -->
-          <view class="weui-cell__bd">
-              <input class="weui-input" name="no" bindinput="noinput" value='{{no}}' placeholder="请输入学号" />
-          </view>
-      </view>
+            <input class="input" name="no" bindinput="noinput" value='{{no}}' placeholder-class='placeholder_class' placeholder="请输入学号" />
     </view>
     <view class="mypwd">
       <!-- 密码 -->
-      <view class="weui-cell weui-cell_input">
-      <image class="nameImage" src="/images/key.png"></image>
-          <!-- <view class="weui-cell__hd">
-              <view class="weui-label">密码</view>
-          </view> -->
-          <view class="weui-cell__bd">
-              <input class="weui-input" type="password" name="pwd" bindinput="pwdinput" placeholder="请输入密码" value='{{pwd}}'/>
-          </view>
-      </view>
+        <input class="input" type="password" name="pwd" bindinput="pwdinput" placeholder-class='placeholder_class' placeholder="请输入密码" value='{{pwd}}'/>
     </view>
  
      <!--按钮-->  

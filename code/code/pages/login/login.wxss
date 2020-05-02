@@ -1,5 +1,4 @@
 /* pages/login/login.wxss */
-/* pages/login/login.wxss */
 page{
   height: 100%;
   background-size:100%;
@@ -37,7 +36,7 @@ page{
 /* 输入框 */
 .myno{
   width: 90%;
-  height: 80rpx;
+  height: 90rpx;
   margin: 0 auto;
   border:1px solid #ccc;
   border-radius: 50rpx;
@@ -45,7 +44,7 @@ page{
 }
 .mypwd{
   width: 90%;
-  height: 80rpx;
+  height: 90rpx;
   margin: 0 auto;
   border:1px solid #ccc;
   border-radius: 50rpx;
@@ -61,8 +60,8 @@ page{
 .loginBtn {
   width: 90%;
   height: 80rpx;
-  line-height: 80rpx;
-  margin-top: 35px;
+  line-height: 45rpx;
+  margin-top: 45rpx;
   color: #fff;
   background-color:#7e8ef0;
   border: 0.1rpx solid #ccc;
@@ -74,4 +73,16 @@ page{
   margin-right: 10px;
   width: 14px;
   height: 14px
+}
+.input{
+  text-align: center;
+	height:20px;
+	min-height:2.4rem;
+}
+.placeholder_class{
+  font-size:auto;
+  font-family: Microsoft YaHei;
+  color: #c0c4cc;
+	height:20px;
+	min-height:0.4rem;
 }
