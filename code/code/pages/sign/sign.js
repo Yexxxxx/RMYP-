@@ -7,7 +7,48 @@ Page({
   data: {
 
   },
-
+  
+  switchChange: function (e) {
+    if (e.detail.value) {
+      this.setData({ sex: '男' })
+    } else {
+      this.setData({ sex: '女' })
+    }
+  },
+  onLoad: function (options) {
+ 
+  },
+  //表单
+  formSubmit: function (e) {
+    wx.request({
+      url: '域名信息',
+      data: e.detail.value,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: (res) => {
+        console.log(res);
+        if (res.error) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        } else {
+          wx.showToast({
+            title: '添加成功',
+            icon: 'success',
+            duration: 2000
+          })
+          wx.navigateTo({
+            url: "../add/add"
+          })
+        }
+      }
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
