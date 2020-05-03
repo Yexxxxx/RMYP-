@@ -1,5 +1,4 @@
-// pages/passwd_back/passwd_back.js
-const app = getApp()
+// pages/passwd_alter/passwd_alter.js
 Page({
 
   /**
@@ -7,33 +6,44 @@ Page({
    */
   data: {
     disabled:false,
-    num:'',
-    numinput:false,
+    pwd_new:'',
+    pwd_second:'',
+    pwd_input:false,
+    pwd_sc_input:false,
   },
-  numinput:function(e){
-    this.setData({num:e.detail.value});
-    this.setData({numinput:true});
-    if(this.data.numinput==true){
+  pwdinput:function(e){
+    this.setData({pwd:e.detail.value});
+    this.setData({pwdinput:true});
+    if(this.data.pwdinput==true && this.data.pwd_sc_input==true){
       this.setData({ disabled: false });
     }
- 
   },
-  goto_alter_passwd:function(){
-    wx.navigateTo({
-      url: '../passwd_alter/passwd_alter',
-    })
+  pwd_sc_input: function (e) {
+    this.setData({pwd_second:e.detail.value});
+    this.setData({pwd_sc_input:true});
+    if(this.data.pwdinput==true && this.data.pwd_sc_input==true){
+      this.setData({ disabled: false });
+  }
   },
   formSubmit: function (e) {
+    wx:if(this.data.pwd_new === this.data.pwd_second){
+      wx.showToast({
+        title: '两次密码不一致',
+        icon: 'none',
+        duration: 1500
+      })
+    }
+    else{
     wx.showLoading({
-      title: '验证中...',
+      title: '...',
     })
+    
     console.log(e);
     this.setData({ disabled: true});
     wx.request({
       url: app.globalData.url.login, //示例，非真实接口地址
       data: {
-        no: e.detail.value.no,
-        pwd: e.detail.value.pwd
+        pwd_new: e.detail.value.no,
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -54,13 +64,12 @@ Page({
               icon: 'success',
               duration: 2000
             })
-           
             setTimeout(function(){
               wx.switchTab({
                 url: '../student/student',
               })
             },2000)
-            goto_alter_passwd()
+            goto_login()
           }
         }else{
           wx.showToast({
@@ -71,6 +80,7 @@ Page({
         }
       }
     })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -78,14 +88,30 @@ Page({
   onLoad: function (options) {
     this.setData({disabled:false});
     var student = wx.getStorageSync('student');
-    if (typeof (student) == 'object' && student.num != '' && student.classid != '') {
+    if (typeof (student) == 'object' && student.no != '' && student.classid != '') {
       wx.switchTab({
         url: '../student/student',
       })
     }
   },
-  
+  goto_login:function(){
+    wx.navigateTo({
+      url: '../login/login',
+    })
+  },
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.setData({disabled:false});
+    var student = wx.getStorageSync('student');
+    if (typeof (student) == 'object' && student.no != '' && student.classid != '') {
+      wx.switchTab({
+        url: '../student/student',
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -97,7 +123,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if(this.data.num==''){
+    if(this.data.pwd_new=='' || this.data.pwd_second==''){
       this.setData({ disabled: true });
     }else{
       this.setData({ disabled: false });

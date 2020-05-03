@@ -1,0 +1,20 @@
+<!--pages/passwd_alter/passwd_alter.wxml-->
+<view class="container"> 
+  <view class="login-from">  
+  <form bindsubmit="formSubmit" class='form'>
+  <view class="pwd">
+    <!-- 修改密码 -->
+        <input class="input" type="password" name="pwd" bindinput="pwdinput" placeholder-class='placeholder_class' placeholder="请输入新密码" value='{{pwd_new}}'/>
+  </view>
+    <view class="pwd">
+      <!-- 再次输入密码 -->
+        <input class="input" type="password" name="pwd" bindinput="pwd_sc_input" placeholder-class='placeholder_class' placeholder="请再次输入密码" value='{{pwd_second}}'/>
+    </view>
+ 
+     <!--按钮-->  
+    <view class="BtnView">  
+      <button class="Btn" form-type='submit' disabled='{{disabled}}'>确定</button>  
+    </view>  
+    </form>
+  </view>  
+</view> 
