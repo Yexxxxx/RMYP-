@@ -24,19 +24,16 @@ Page({
     })
   },
   formSubmit: function (e) {
-    wx.showLoading({
-      title: '验证中...',
-    })
     console.log(e);
     this.setData({ disabled: true});
     wx.request({
-      url: app.globalData.url.login, //示例，非真实接口地址
+      url:"http://localhost/GitHub/RMYP-/code/code/pages/passwd_back/passwd_back.php", //示例，非真实接口地址
       data: {
-        no: e.detail.value.no,
-        pwd: e.detail.value.pwd
+        num: e.detail.value.num,
       },
+      method: 'POST',
       header: {
-        'content-type': 'application/json' // 默认值
+        "Content-Type": "application/x-www-form-urlencoded" // POST硬性要求
       },
       success: function (res) {
         console.log(res);
