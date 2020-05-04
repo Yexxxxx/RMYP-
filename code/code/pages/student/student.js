@@ -7,6 +7,21 @@ Page({
   data: {
 
   },
+  goto_check:function(){
+    wx.navigateTo({
+      url: '../sutdent_select_trainer/sutdent_select_trainer',
+    })
+  },
+  goto_alter:function(){
+    wx.navigateTo({
+      url: '../student_alter/student_alter',
+    })
+  },
+  goto_logout:function(){
+    wx.navigateTo({
+      url: '../unsign/unsign',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
