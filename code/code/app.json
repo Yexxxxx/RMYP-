@@ -7,6 +7,7 @@
     "pages/login/login",
     "pages/sign/sign",
     "pages/passwd_back/passwd_back",
+    "pages/passwd_alter/passwd_alter",
     
     "pages/trainer/trainer",
     "pages/student/student",
