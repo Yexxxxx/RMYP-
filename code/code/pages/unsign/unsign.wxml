@@ -1,2 +1,4 @@
-<!--pages/unsign/unsign.wxml-->
-<text>pages/unsign/unsign.wxml</text>
+<view class= "container">
+ <input class="input" type="password" name="pwd" bindinput="pwdinput" placeholder-class='placeholder_class' placeholder="请输入密码" value='{{pwd}}'/>
+<button class="unsignBtn">确认注销</button>
+</view>
