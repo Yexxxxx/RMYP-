@@ -1,5 +1,4 @@
 <?php
-header('content-type:text/html;charset=utf-8');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PWD', '');
@@ -13,24 +12,24 @@ if($db->connect_errno){
 }
 
 $db->set_charset('utf8');//设置编码
-$post = $_POST['no'];
-$password =$_POST['pwd'];
+$chk = $_POST['num'];
+//echo($chk);
 
-$sql = "SELECT * FROM student WHERE s_number='{$post}'AND s_passwd='{$password}'";
-$result = $db->query($sql);
+
+$sql3 = "SELECT * FROM student WHERE s_number='{$chk}'";
+$result = $db->query($sql3);
 if(!$result){
     echo('SQL执行出错');
     return;
 }
 $row = $result->fetch_array(); 
+
 if($row){
     session_start();
-    $_SESSION['no'] = $row['s_number'];
-    //$_SESSION['pwd'] = $row['s_passwd'];
-    $_SESSION['is_login'] = 1;
+    $_SESSION['num'] = $row['s_number'];
 //    setcookie('username','hello user',time()+20);
-    echo('登录成功');
+    echo('验证成功');
 }else{
-    echo('用户名密码有误');
+    echo('无此用户');
 }
 
