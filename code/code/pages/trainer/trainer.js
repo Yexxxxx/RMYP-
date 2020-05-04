@@ -7,7 +7,21 @@ Page({
   data: {
 
   },
-
+  goto_bodydata_select:function(){
+    wx.navigateTo({
+      url: "../bodydata_select/bodydata_select",
+    })
+  },
+  goto_logout:function(){
+    wx.navigateTo({
+      url: '../unsign/unsign',
+    })
+  },
+  goto_lookstudent:function(){
+    wx.navigateTo({
+      url: '../trainer_lookstudent/trainer_lookstudent',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

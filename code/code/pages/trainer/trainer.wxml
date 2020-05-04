@@ -1,2 +1,27 @@
-<!--pages/trainer/trainer.wxml-->
-<text>pages/trainer/trainer.wxml</text>
+<view class="userInfo">
+  <view class="heard">
+    <open-data type="userAvatarUrl" ></open-data>
+  </view>
+  <view class="account">
+   <open-data type="userNickName"></open-data>
+  </view>
+</view>
+<view class="list">
+    <view class="order" >
+        <view class="order-detail" bindtap="goto_lookstudent">
+             <text>查看学员</text>
+        </view>
+    </view>
+ 
+    <view class="information" >
+          <view class="information-detail" bindtap="goto_bodydata_select">
+               <text>体测档案</text>
+          </view>
+  </view>
+  <view class="logout" >
+          <view class="logout-detail" bindtap="goto_logout">
+               <text>注销</text>
+          </view>
+  </view>
+</view>
+ 
