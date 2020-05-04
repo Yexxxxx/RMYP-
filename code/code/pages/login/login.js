@@ -27,31 +27,34 @@ Page({
     }
   },
   formSubmit: function (e) {
-    wx.showLoading({
-      title: '登录中...',
-    })
+    // wx.showLoading({
+    //   title: '登录中...',
+    // })
     console.log(e);
     this.setData({ disabled: true});
     wx.request({
-      url: app.globalData.url.login, //示例，非真实接口地址
+      url: 'http://localhost/GitHub/RMYP-/code/code/pages/login/login2.php', //示例，非真实接口地址
+      method:"POST",
       data: {
         no: e.detail.value.no,
-        pwd: e.detail.value.pwd
+        pwd: e.detail.value.pwd,
       },
+      
       header: {
-        'content-type': 'application/json' // 默认值
+        "Content-Type": "application/x-www-form-urlencoded" // 默认值
       },
+      
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
           if (res.data.error == true) {
             wx.showToast({
               title: res.data.msg,
-              icon: 'none',
+              icon: 'error',
               duration: 2000
             })
           } else {
-            wx.setStorageSync('student', res.data.data);
+           
             wx.showToast({
               title: res.data.msg,
               icon: 'success',
