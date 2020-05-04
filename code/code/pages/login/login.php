@@ -1,5 +1,4 @@
 <?php
-header('content-type:text/html;charset=utf-8');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PWD', '');
@@ -13,17 +12,19 @@ if($db->connect_errno){
 }
 
 $db->set_charset('utf8');//设置编码
-//数据插入操作
-$sql3 = "INSERT INTO student(s_user,s_passwd,s_number,s_name,s_sex,s_t_number) values(26,'B3',3,'Yoha','男',4)";
- 
-if ($db->query($sql3) === TRUE) {
-    echo "新记录插入成功";
-}else {
-   echo "Error: " . $sql3 . "<br>" . $db->error;
-}
-
-$sql = "SELECT * FROM student";
+$username = $_POST['no'];
+$password = $_POST['pwd'];
+$info = $_POST['info'];
+$info="账号密码错误";
+$sql = "SELECT * FROM student WHERE s_number='{$username}' AND s_passwd='{$password}'";
 $result = $db->query($sql);
-
-$db->close();
-?>
+if(!$result){
+   echo $info;
+}
+$row = $result->fetch_array(); 
+if($row){
+    $info="登入成功";
+    echo $info;
+}else{
+    echo $info;
+}

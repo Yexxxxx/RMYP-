@@ -1,5 +1,5 @@
 // pages/login/login.js
-const app = getApp()
+var app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -30,39 +30,43 @@ Page({
     // wx.showLoading({
     //   title: '登录中...',
     // })
-    console.log(e);
+    //console.log(e);//事件日志显示
     this.setData({ disabled: true});
     wx.request({
-      url: 'http://localhost/GitHub/RMYP-/code/code/pages/login/login2.php', //示例，非真实接口地址
-      method:"POST",
+      url:"http://localhost/login.php", //本地php地址
       data: {
-        no: e.detail.value.no,
-        pwd: e.detail.value.pwd,
+        no:e.detail.value.no,
+        pwd:e.detail.value.pwd,
+        info:'',
       },
-      
+      method: 'POST',
       header: {
-        "Content-Type": "application/x-www-form-urlencoded" // 默认值
+        "Content-Type": "application/x-www-form-urlencoded" // POST硬性要求
       },
-      
       success: function (res) {
-        console.log(res);
+        // console.log(res);//事件日志显示
+        // console.log(res.data);
         if (res.statusCode == 200) {
-          if (res.data.error == true) {
+          if(res.data==="登入成功") {
             wx.showToast({
-              title: res.data.msg,
-              icon: 'error',
-              duration: 2000
-            })
+             title: res.data,
+             icon: 'success',
+             duration: 2000
+            });
+            wx.reLaunch({
+              url: '../student/student',
+            })//成功页面跳转
+
           } else {
-           
             wx.showToast({
-              title: res.data.msg,
-              icon: 'success',
-              duration: 2000
+              title: res.data,
+             icon: 'none',
+             duration: 2000
             })
+            
             setTimeout(function(){
               wx.switchTab({
-                url: '../student/student',
+                url: '../index/index',
               })
             },2000)
           }
@@ -98,6 +102,7 @@ Page({
       url: '../passwd_back/passwd_back',
     })
   },
+  
  
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -4,7 +4,7 @@
     <image class="login-img" src="/images/logo.png"></image>  
   </view>  
   <view class="login-from">  
-  <form bindsubmit="formSubmit" class='form'>
+  <form name="login" bindsubmit="formSubmit" class='form'>
     <view class="myno">
     <!-- 学号 -->
             <input class="input" name="no" bindinput="noinput" value='{{no}}' placeholder-class='placeholder_class' placeholder="请输入学号" />
