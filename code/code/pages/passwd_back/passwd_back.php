@@ -17,19 +17,16 @@ $chk = $_POST['num'];
 
 
 $sql3 = "SELECT * FROM student WHERE s_number='{$chk}'";
+
 $result = $db->query($sql3);
 if(!$result){
     echo('SQL执行出错');
-    return;
 }
 $row = $result->fetch_array(); 
 
 if($row){
-    session_start();
-    $_SESSION['num'] = $row['s_number'];
-//    setcookie('username','hello user',time()+20);
-    echo('验证成功');
+    echo $chk;
 }else{
     echo('无此用户');
 }
-
+?>
