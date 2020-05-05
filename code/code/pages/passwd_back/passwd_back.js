@@ -27,15 +27,11 @@ Page({
     console.log(e);
     this.setData({ disabled: true});
     wx.request({
-<<<<<<< HEAD
+
       url:"http://localhost/GitHub/RMYP-/code/code/pages/passwd_back/passwd_back.php", //示例，非真实接口地址
       data: {
         num: e.detail.value.num,
-=======
-      url:"http://localhost/login.php", //示例，非真实接口地址
-      data: {
-        num: e.detail.value.no,
->>>>>>> d4ee3ad2e5f3f30bcbe778f91cc370fdd365cb11
+
       },
       method: 'POST',
       header: {
@@ -56,8 +52,10 @@ Page({
               title: res.data.msg,
               icon: 'success',
               duration: 2000
-            })
-           
+            });
+            wx.reLaunch({
+              url: '../passwd_alter/passwd_alter',
+            })//成功页面跳转
             setTimeout(function(){
               wx.switchTab({
                 url: '../student/student',
