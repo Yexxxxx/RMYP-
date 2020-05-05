@@ -1,6 +1,9 @@
 <!--pages/passwd_alter/passwd_alter.wxml-->
 <view class="container"> 
   <view class="login-from">  
+  <view>
+    <text class="num">学号/工号：{{num}}</text>
+  </view>
   <form bindsubmit="formSubmit" class='form'>
   <view class="pwd">
     <!-- 修改密码 -->
@@ -14,7 +17,7 @@
      <!--按钮-->  
     <view class="BtnView">  
       <button class="Btn" form-type='submit' disabled='{{disabled}}'>确定</button>  
-    </view>  
+    </view>
     </form>
   </view>  
 </view> 

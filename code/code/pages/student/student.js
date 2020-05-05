@@ -7,22 +7,30 @@ Page({
   data: {
 
   },
+  //体测档案
+  goto_bodydata_select:function(){
+    wx.navigateTo({
+      url: "../bodydata_select/bodydata_select",
+    })
+  },   
+  //查看教练
   goto_check:function(){
     wx.navigateTo({
       url: '../sutdent_select_trainer/sutdent_select_trainer',
     })
   },
-  goto_alter:function(){
-    wx.navigateTo({
-      url: '../student_alter/student_alter',
-    })
-  },
+  //注销
   goto_logout:function(){
     wx.navigateTo({
       url: '../unsign/unsign',
     })
   },
-
+  //密码修改
+  goto_passwd_alter:function(){
+    wx.navigateTo({
+      url: '../passwd_alter/passwd_alter',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

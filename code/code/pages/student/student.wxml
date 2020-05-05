@@ -7,23 +7,27 @@
     </view>
   </view>
 <view class="list">
-    <view class="order" >
-        <view class="order-detail" bindtap="goto_check">
-             <text>个人信息</text>
-        </view>
-    </view>
-    <view class="coach" >
-        <view class="coach-detail" bindtap="goto_coach">
+    <view class="student" >
+        <image src="/images/students/mycoach.png" mode="widthFix"></image>
+        <view class="student-detail" bindtap="goto_coach">
                <text>我的教练</text>
         </view>
     </view>
-    <view class="information" >
-          <view class="information-detail" bindtap="goto_logout">
+    <view class="student" >
+          <image src="/images/students/ticedangan.png" mode="widthFix"></image>
+          <view class="student-detail" bindtap="goto_logout">
                <text>体测档案</text>
           </view>
   </view>
-  <view class="logout" >
-          <view class="logout-detail" bindtap="goto_logout">
+  <view class="student" >
+          <image src="/images/students/passwd_alter.png" mode="widthFix"></image>
+          <view class="student-detail" bindtap="goto_passwd_alter">
+               <text>修改密码</text>
+          </view>
+  </view>
+  <view class="student" >
+          <image src="/images/students/logout.png" mode="widthFix"></image>
+          <view class="student-detail" bindtap="goto_logout">
                <text>注销</text>
           </view>
   </view>

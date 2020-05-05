@@ -6,10 +6,11 @@ Page({
    */
   data: {
     disabled:false,
-    pwd_new:'',
-    pwd_second:'',
+    pwd_new:"",
+    pwd_second:"",
     pwd_input:false,
     pwd_sc_input:false,
+    num:wx.getStorageSync('num')
   },
   pwdinput:function(e){
     this.setData({pwd:e.detail.value});
@@ -33,19 +34,16 @@ Page({
         duration: 1500
       })
     }
-     else{
-    //   wx.showLoading({
-    //     // title: '...'
-    //  })
-    
-    console.log(e);
+    else{
     this.setData({ disabled: true});
     wx.request({
 
       url:"http://localhost/GitHub/RMYP-/code/code/pages/passwd_alter/passwd_alter.php", //示例，非真实接口地址
       data: {
-        pwd_new: e.detail.value.pwd_new,
-        pwd_second: e.detail.value.pwd_second,
+
+        num:wx.getStorageSync('num'),
+        pwd_new: e.detail.value.no,
+
       },
       method: 'POST',
       header: {
@@ -72,7 +70,6 @@ Page({
                 url: '../student/student',
               })
             },2000)
-            goto_login()
           }
         }else{
           wx.showToast({
@@ -89,7 +86,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({disabled:false});
+    var that = this
+    that.setData({
+      disabled:false,
+    });
     var student = wx.getStorageSync('student');
     if (typeof (student) == 'object' && student.no != '' && student.classid != '') {
       wx.switchTab({
@@ -107,7 +107,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({disabled:false});
+    this.setData({
+      disabled:false,
+      num:options.passwd_num
+    });
     var student = wx.getStorageSync('student');
     if (typeof (student) == 'object' && student.no != '' && student.classid != '') {
       wx.switchTab({

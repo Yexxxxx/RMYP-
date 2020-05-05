@@ -34,7 +34,7 @@
   background-color: #eee;
 }
 
-.order{
+.coach{
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -44,61 +44,22 @@
   background-color:white;
   padding-left: 30rpx;
   height: 80rpx;
+
 }
-.order .order-detail{
- width: 86%;
+
+.coach image{
+  width:50rpx;
+  border-radius: 50%;
+}
+
+.coach .coach-detail{
+  width: 86%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.coach  {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  margin-bottom:  20rpx;
-  background-color:white;
-  padding-left: 30rpx;
-  height: 80rpx;
+
+.coach text{
+  margin-left: 20rpx;
+  font-size: 40rpx;
 }
-.coach .coach-detail{
-  width: 86%;
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
- }
- .information {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  margin-bottom:  20rpx;
-  background-color:white;
-  padding-left: 30rpx;
-  height: 80rpx;
-}
-.information .information-detail{
-  width: 86%;
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
- }
- .logout{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  margin-bottom:  20rpx;
-  background-color:white;
-  padding-left: 30rpx;
-  height: 80rpx;
-}
-.logout .logout-detail{
-   width: 86%;
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
- }
