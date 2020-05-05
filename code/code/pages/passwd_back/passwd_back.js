@@ -23,47 +23,47 @@ Page({
       url: '../passwd_alter/passwd_alter',
     })
   },
+  
   formSubmit: function (e) {
-    console.log(e);
+    var that = this;
+    //console.log(e);
     this.setData({ disabled: true});
     wx.request({
-<<<<<<< HEAD
-      url:"http://localhost/GitHub/RMYP-/code/code/pages/passwd_back/passwd_back.php", //示例，非真实接口地址
+      url:"http://localhost/passwd_back.php", //示例，非真实接口地址
       data: {
         num: e.detail.value.num,
-=======
-      url:"http://localhost/login.php", //示例，非真实接口地址
-      data: {
-        num: e.detail.value.no,
->>>>>>> d4ee3ad2e5f3f30bcbe778f91cc370fdd365cb11
       },
       method: 'POST',
       header: {
         "Content-Type": "application/x-www-form-urlencoded" // POST硬性要求
       },
       success: function (res) {
-        console.log(res);
+        //console.log(res.data);
         if (res.statusCode == 200) {
-          if (res.data.error == true) {
+          if (res.data == that.data.num) {
             wx.showToast({
-              title: res.data.msg,
+              title: "验证成功",
+              icon: 'success',
+              duration: 2000
+             })
+            wx.setStorage({
+              key: "num",
+              data: res.data
+             })
+             wx.redirectTo({
+              url: '../passwd_alter/passwd_alter',
+            })//成功页面跳转
+          } else {
+            wx.showToast({
+              title: res.data,
               icon: 'none',
               duration: 2000
             })
-          } else {
-            wx.setStorageSync('student', res.data.data);
-            wx.showToast({
-              title: res.data.msg,
-              icon: 'success',
-              duration: 2000
-            })
-           
             setTimeout(function(){
               wx.switchTab({
                 url: '../student/student',
               })
             },2000)
-            goto_alter_passwd()
           }
         }else{
           wx.showToast({

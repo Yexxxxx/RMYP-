@@ -20,7 +20,16 @@ page{
   flex: auto;
   height:100%;
 }
- 
+/* 学号/工号text文本显示 */
+.num{
+  height: 90rpx;
+  width: fit-content;
+  padding-left:20px;
+  font-size:20px;      /*设置文字字号*/
+  color:black;           /*设置文字颜色*/
+  font-weight:bold;    /*设置字体加粗*/
+  font-family:"宋体";   /*设置字体为宋体*/
+}
 /* 输入框 */
 .pwd{
   width: 90%;
@@ -30,6 +39,8 @@ page{
   border-radius: 50rpx;
   margin-top: 20rpx;
 }
+
+
 /*按钮*/
 .BtnView {
   margin-top: 0px;
