@@ -7,19 +7,28 @@ Page({
   data: {
 
   },
+  //体测档案
   goto_bodydata_select:function(){
     wx.navigateTo({
       url: "../bodydata_select/bodydata_select",
     })
   },
+  //注销
   goto_logout:function(){
     wx.navigateTo({
       url: '../unsign/unsign',
     })
   },
+  //查看学员
   goto_lookstudent:function(){
     wx.navigateTo({
       url: '../trainer_lookstudent/trainer_lookstudent',
+    })
+  },
+  //密码修改
+  goto_passwd_alter:function(){
+    wx.navigateTo({
+      url: '../passwd_alter/passwd_alter',
     })
   },
   /**
