@@ -33,20 +33,23 @@ Page({
         duration: 1500
       })
     }
-    else{
-    wx.showLoading({
-      title: '...',
-    })
+     else{
+    //   wx.showLoading({
+    //     // title: '...'
+    //  })
     
     console.log(e);
     this.setData({ disabled: true});
     wx.request({
-      url: app.globalData.url.login, //示例，非真实接口地址
+
+      url:"http://localhost/GitHub/RMYP-/code/code/pages/passwd_alter/passwd_alter.php", //示例，非真实接口地址
       data: {
-        pwd_new: e.detail.value.no,
+        pwd_new: e.detail.value.pwd_new,
+        pwd_second: e.detail.value.pwd_second,
       },
+      method: 'POST',
       header: {
-        'content-type': 'application/json' // 默认值
+        "Content-Type": "application/x-www-form-urlencoded" // POST硬性要求
       },
       success: function (res) {
         console.log(res);
