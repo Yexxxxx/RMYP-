@@ -27,7 +27,8 @@ Page({
   }
   },
   formSubmit: function (e) {
-    wx:if(this.data.pwd_new === this.data.pwd_second){
+    var that = this
+    wx:if(that.data.pwd_new === that.data.pwd_second){
       wx.showToast({
         title: '两次密码不一致',
         icon: 'none',
@@ -37,20 +38,17 @@ Page({
     else{
     this.setData({ disabled: true});
     wx.request({
-
       url:"http://localhost/GitHub/RMYP-/code/code/pages/passwd_alter/passwd_alter.php", //示例，非真实接口地址
       data: {
-
         num:wx.getStorageSync('num'),
-        pwd_new: e.detail.value.no,
-
+        pwd_new:e.detail.value.pwd_new,
       },
       method: 'POST',
       header: {
-        "Content-Type": "application/x-www-form-urlencoded" // POST硬性要求
+        "content-type": "application/x-www-form-urlencoded" // POST硬性要求
       },
       success: function (res) {
-        console.log(res);
+        console.log(res.data);
         if (res.statusCode == 200) {
           if (res.data.error == true) {
             wx.showToast({
