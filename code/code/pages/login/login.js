@@ -33,7 +33,7 @@ Page({
     //console.log(e);//事件日志显示
     this.setData({ disabled: true});
     wx.request({
-      url:"http://localhost/login.php", //本地php地址
+      url:"http://localhost/GitHub/RMYP-/code/code/pages/login/login.php", //本地php地址
       data: {
         no:e.detail.value.no,
         pwd:e.detail.value.pwd,
