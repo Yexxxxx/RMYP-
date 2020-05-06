@@ -5,7 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
+      no:'',
+      name:'',
+      sex:'',
+      age:'',
+      noinput:false,
+      nameinput:false,
 
+  },
+  noinput:function(e){
+    this.setData({no:e.detail.value});
+    this.setData({noinput:true});
+    if(this.data.noinput==true){
+      this.setData({ disabled: false });
+    }
+ 
+  },
+  nameinput:function(e){
+    this.setData({name:e.detail.value});
+    this.setData({nameinput:true});
+    if(this.data.nameinput==true){
+      this.setData({ disabled: false });
+    }
+ 
   },
   
   switchChange: function (e) {
@@ -15,17 +37,23 @@ Page({
       this.setData({ sex: '女' })
     }
   },
-  onLoad: function (options) {
+  // onLoad: function (options) {
  
-  },
+  // },
   //表单
   formSubmit: function (e) {
+    var that = this;
+    //console.log(e);
+    this.setData({ disabled: true});
     wx.request({
-      url: '域名信息',
-      data: e.detail.value,
+      url: 'http://localhost/GitHub/RMYP-/code/code/pages/sign/sign_up.php',
+      no: e.detail.value.no,
+      name: e.detail.value.name,
+      sex: e.detail.value.sex,
+      age: e.detail.value.age,
       method: 'POST',
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        "Content-Type": "application/x-www-form-urlencoded" // POST硬性要求
       },
       success: (res) => {
         console.log(res);
