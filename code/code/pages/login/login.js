@@ -31,6 +31,7 @@ Page({
     //   title: '登录中...',
     // })
     //console.log(e);//事件日志显示
+    var that = this;
     this.setData({ disabled: true});
     wx.request({
       url:"http://localhost/GitHub/RMYP-/code/code/pages/login/login.php", //本地php地址
@@ -45,7 +46,7 @@ Page({
       },
       success: function (res) {
         // console.log(res);//事件日志显示
-        // console.log(res.data);
+        console.log(that.data.no.charAt(0));
         if (res.statusCode == 200) {
           if(res.data==="登入成功") {
             wx.showToast({
@@ -53,10 +54,17 @@ Page({
              icon: 'success',
              duration: 2000
             });
+            //教练和学员账号跳转到不同页面
+            if(that.data.no.charAt(0)=='1'){
             wx.reLaunch({
               url: '../student/student',
             })//成功页面跳转
-
+          }else{
+            if(that.data.no.charAt(0)=='2'){
+              wx.reLaunch({
+                url: '../trainer/trainer',
+              })//成功页面跳转
+          }}
           } else {
             wx.showToast({
               title: res.data,
