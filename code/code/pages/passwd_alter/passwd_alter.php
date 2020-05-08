@@ -12,26 +12,33 @@ define('DB_NAME', 'cms');
 if($db->connect_errno){
     die('数据库连接失败，失败原因为：'. mysqli_connect_error());
 }
-
 $db->set_charset('utf8');//设置编码
 $no = $_POST['num'];
 $pwd_new = $_POST['pwd_new'];
-//echo $no;
- $sql3 = "UPDATE student SET s_passwd='$pwd_new' WHERE s_number='$no'";
- $result = $db->query($sql3);
+$info  = "修改成功";
 
-// if(!$result){
-//     echo('SQL执行出错');
-// }
-/*
-$row = $result->fetch_array(); 
-
-if($row){
-    session_start();
-    $_SESSION['num'] = $row['s_number'];
-//    setcookie('username','hello user',time()+20);
-    echo('验证成功');
-}else{
-    echo('无此用户');
+if(substr($no,0,1)=='1'){
+    student($db,$no, $pwd_new);
+}elseif(substr($no,0,1)=='2'){
+    trainer($db,$no,$pwd_new);
 }
+function student($db,$no,$pwd_new){
+    $sql3 = "UPDATE student SET s_passwd='$pwd_new' WHERE s_number='$no'";
+    $result = $db->query($sql3);
+    if($result && mysql_affected_rows()>0){
+    echo $info;
+    } else {
+    echo "出错，未改变";    
+    }
+}
+function trainer($db,$no,$pwd_new){
+    $sql3 = "UPDATE trainer SET t_passwd='$pwd_new' WHERE t_number='$no'";
+    $result = $db->query($sql3);
+     if($result && mysql_affected_rows()>0){
+    echo $info;
+    } else {
+    echo "出错，未改变";    
+    }
+}
+
 

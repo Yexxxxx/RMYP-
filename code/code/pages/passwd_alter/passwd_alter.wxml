@@ -7,11 +7,11 @@
   <form bindsubmit="formSubmit" class='form'>
   <view class="pwd">
     <!-- 修改密码 -->
-        <input class="input" type="password" name="pwd" bindinput="pwdinput" placeholder-class='placeholder_class' placeholder="请输入新密码" value='{{pwd_new}}'/>
+        <input class="input" type="password" name="pwd_new" bindinput="pwdinput" placeholder-class='placeholder_class' placeholder="请输入新密码" value='{{pwd_new}}'/>
   </view>
     <view class="pwd">
       <!-- 再次输入密码 -->
-        <input class="input" type="password" name="pwd" bindinput="pwd_sc_input" placeholder-class='placeholder_class' placeholder="请再次输入密码" value='{{pwd_second}}'/>
+        <input class="input" type="password" name="pwd_second" bindinput="pwd_sc_input" placeholder-class='placeholder_class' placeholder="请再次输入密码" value='{{pwd_second}}'/>
     </view>
  
      <!--按钮-->  
