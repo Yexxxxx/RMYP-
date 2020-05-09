@@ -1,38 +1,40 @@
 <!--pages/sign/sign.wxml-->
-<form bindsubmit="formSubmit">
-  <view class='weui-cell weui-cell_input'>
-    <view class='weui-cell__hd'>
-      <view class='weui-label'>学号</view>
+<view id="total">
+  <form bindsubmit="formSubmit">
+    <view id="t1" class='weui-cell weui-cell_input'>
+      <view class='weui-cell__hd'>
+        <view class='weui-label'>学号</view>
+      </view>
+      <view class='weui-cell__bd'>
+        <input class='weui-input' name='no' placeholder='请输入学号' value='1635050512'/>
+      </view>
     </view>
-    <view class='weui-cell__bd'>
-      <input class='weui-input' name='no' placeholder='请输入学号' value='1635050512'/>
+    <view id="t2" class='weui-cell weui-cell_input'>
+      <view class='weui-cell__hd'>
+        <view class='weui-label'>姓名</view>
+      </view>
+      <view class='weui-cell__bd'>
+        <input class='weui-input' name='name' placeholder='请输入姓名' value='张三'/>
+      </view>
     </view>
-  </view>
-  <view class='weui-cell weui-cell_input'>
-    <view class='weui-cell__hd'>
-      <view class='weui-label'>姓名</view>
+    <view id="t3" class='weui-cell weui-cell_input'>
+      <view class='weui-cell__bd'>性别</view>
+      <input class='weui-input' name='sex' value='{{sex}}'/>
+      <view class='weui-cell__ft'>
+        <switch checked bindchange='switchChange'></switch>
+      </view>
     </view>
-    <view class='weui-cell__bd'>
-      <input class='weui-input' name='name' placeholder='请输入姓名' value='张三'/>
+    <view id="t4" class='weui-cell weui-cell_input'>
+      <view class='weui-cell__hd'>
+        <view class='weui-label'>年龄</view>
+      </view>
+      <view class='weui-cell__bd'>
+        <input class='weui-input' name='age' placeholder='请输入年龄' value='20'/>
+      </view>
     </view>
-  </view>
-  <view class='weui-cell weui-cell_input'>
-    <view class='weui-cell__bd'>性别</view>
-    <input class='weui-input' name='sex' value='{{sex}}'/>
-    <view class='weui-cell__ft'>
-      <switch checked bindchange='switchChange'></switch>
+  
+    <view class='weui-btn-area'>
+      <button id="btn" class='weui-btn' type='primary' form-type='submit' >确认</button>
     </view>
-  </view>
-  <view class='weui-cell weui-cell_input'>
-    <view class='weui-cell__hd'>
-      <view class='weui-label'>年龄</view>
-    </view>
-    <view class='weui-cell__bd'>
-      <input class='weui-input' name='age' placeholder='请输入年龄' value='20'/>
-    </view>
-  </view>
- 
-  <view class='weui-btn-area'>
-    <button class='weui-btn' type='primary' form-type='submit' >确认</button>
-  </view>
   </form>
+</view>
