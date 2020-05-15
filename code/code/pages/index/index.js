@@ -63,4 +63,8 @@ bindGetUserInfo: function(res) {
       });
     }
  }
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> 63eb1aa28215746f32336b9a2f724ee6a62b99eb
