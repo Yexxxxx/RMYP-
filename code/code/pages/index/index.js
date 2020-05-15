@@ -1,72 +1,66 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
-Page({
-  data: {
-    motto: '登入',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  goto_login:function(){
-    wx.navigateTo({
-      url: '../login/login',
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-        
+wx.cloud.init() 
+Page({  
+  /**   * 页面的初始数据   */  
+  data: {     
+    canIUse:true,
+    name:"",
+    src:"",
+    gender:"",
+  },  
+  onLoad: function(options) {
+    var that = this;
+    //查看是否授权
+    wx.getSetting({
+      success: function(res) {
+        if (res.authSetting['scope.userInfo']) {
+          console.log("用户授权了");
+        } else {
+          //用户没有授权
+          console.log("用户没有授权");
+        }
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
+    });
+  },
+bindGetUserInfo: function(res) {
+    if (res.detail.userInfo) {
+      //用户按了允许授权按钮
+      var that = this;
+      // 获取到用户的信息了，打印到控制台上看下
+      console.log("用户的信息如下：");
+      console.log(res.detail.userInfo);
+      let info = res.detail.userInfo.nickName;
+      //授权成功后,通过改变 isHide 的值，让实现页面显示出来，把授权页面隐藏起来
+      that.setData({
+        isHide: false,
+        name:info,
+        src:res.detail.userInfo.avatarUrl,
+        gender:res.detail.userInfo.gender,
+      });
+      const db = wx.cloud.database()
+      db.collection('user').add({
+        data: {
+          name:info,
+          src:res.detail.userInfo.avatarUrl,
+          gender:res.detail.userInfo.gender,
+        },
         success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
+          console.log("插入成功");
         }
       })
+    } else {
+      //用户按了拒绝按钮
+      wx.showModal({
+        title: '警告',
+        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
+        showCancel: false,
+        confirmText: '返回授权',
+        success: function(res) {
+          // 用户没有授权成功，不需要改变 isHide 的值
+          if (res.confirm) {
+            console.log('用户点击了“返回授权”');
+          }
+        }
+      });
     }
-    wx.request({
-      url: 'http://localhost', //服务器地址
-      data: {
-          name: 'bob'//请求参数
-      },
-      header: {
-          'content-type': 'application/json'
-      },
-      success: function (res) {
-          console.log(res.data)
-      }
-    })
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
+ }
 })
