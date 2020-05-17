@@ -9,8 +9,4 @@
     <button class='authBtn' type='primary' open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo'>授权登录</button>
   </view>
 </view>
-<<<<<<< HEAD
 <view wx:else>请升级微信版本</view>
-=======
-<view wx:else>请升级微信版本</view>
->>>>>>> 63eb1aa28215746f32336b9a2f724ee6a62b99eb
