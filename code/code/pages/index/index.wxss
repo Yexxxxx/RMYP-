@@ -8,7 +8,6 @@
   margin-right: 25px;
   margin-bottom: 0px;
   height: 50px;
-<<<<<<< HEAD
 }
 .headImage{
   display: flex;
@@ -36,36 +35,6 @@
   margin-left: 25px;
   margin-right: 25px;
   height: 45px;
- font-size: 17.5px;
+  background-color: #32CD32;
+  font-size: 17.5px;
 }
-=======
-}
-.headImage{
-  display: flex;
-  width: 50px;
-  height: 50px;
-}
-.titleText {
-  margin-left: 25px;
-  margin-top: 25px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: #020e0f;
-  text-align: center;
-}
-.contentText {
-  margin-left: 25px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-size: 14px;
-  color: #666;
-  text-align: center;
-}
-.authBtn {
-  margin-top: 35px;
-  margin-left: 25px;
-  margin-right: 25px;
-  height: 45px;
- font-size: 17.5px;
-}
->>>>>>> 63eb1aa28215746f32336b9a2f724ee6a62b99eb
