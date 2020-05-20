@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/index1/index1",
+    "pages/analysisPart/ana",
 
     "pages/search/search",
     "pages/404/404",
@@ -45,7 +46,7 @@
       {
         "selectedIconPath": "images/tabBar/ana.png",
         "iconPath": "images/tabBar/ana.png",
-        "pagePath": "pages/student/student",
+        "pagePath": "pages/analysisPart/ana",
         "text": "分析图"
       },
       {
@@ -56,5 +57,5 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap89.json"
+  "sitemapLocation": "sitemap.json"
 }
