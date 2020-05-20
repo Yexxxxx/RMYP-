@@ -114,7 +114,7 @@ onLoad:function(options) {
     }
  },
  goto_student:function(){
-  wx.redirectTo({
+  wx.switchTab({
     url: '../student/student',
   })
 },
