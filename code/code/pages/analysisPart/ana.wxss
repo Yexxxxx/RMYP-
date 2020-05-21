@@ -3,3 +3,23 @@ ec-canvas {
   width: 100%;
   height: 100%;
 }
+.section{
+  text-align: center;
+  position: relative;
+  top:20px;
+  width: 100px;
+  height: 45px;
+}
+.weight{
+  border: #5E7CE2 solid 1px;
+  background-color: hsl(191, 24%, 78%);
+  border-radius: 5px;
+}
+.height{
+  position: relative;
+  top:-5px;
+  border: #5E7CE2 solid 1px;
+  background-color: hsl(191, 24%, 78%);
+  border-radius: 5px;
+
+}
