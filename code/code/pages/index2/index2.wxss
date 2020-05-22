@@ -50,6 +50,7 @@
 
 .input-container {
    padding: 0 40rpx;
+   width: 85%;
 }
 .item {
   border-bottom: 1px solid #e2e2e2;
@@ -108,6 +109,7 @@
   padding: 40rpx 40rpx 0 40rpx;
   font-size: 28rpx;
   color:#909090;
+  width:85%;
 }
 
 .compatable .table-title{
