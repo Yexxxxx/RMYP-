@@ -1,4 +1,4 @@
-
+var util = require('../../utils/util.js');
 
 //index.js
 //获取应用实例
@@ -24,7 +24,7 @@ Page({
     charLt: '<'
   },
   onLoad: function () {
-
+    
   },
   bindPickerChange: function (e) {
     this.setData({
@@ -47,6 +47,7 @@ Page({
         title: '请输入身高'
       })
       return false;
+      
     }
 
     if (!this.data.weight) {
@@ -58,6 +59,22 @@ Page({
     this.calculate();
     this.weightStandardCalculate();
     this.physicalConditionCalculate();
+    var time = util.formatTime(new Date());
+    this.setData({
+      time: time
+    });
+    var that = this
+    const db = wx.cloud.database()  
+    db.collection('data').add({
+      data: {
+        height:this.data.height,
+        time:time,
+        weight:this.data.weight
+      },
+      success: res => {
+        console.log("插入成功");
+      }
+    })
   },
   //计算IBM值
   calculate: function () {
