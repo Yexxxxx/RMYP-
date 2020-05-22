@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/index1/index1",
+    "pages/index2/index2",
     "pages/analysisPart/ana",
 
     "pages/search/search",
@@ -34,7 +34,7 @@
       {
         "selectedIconPath": "images/tabBar/index.png",
         "iconPath": "images/tabBar/index.png",
-        "pagePath": "pages/index1/index1",
+        "pagePath": "pages/index2/index2",
         "text": "首页"
       },
       {

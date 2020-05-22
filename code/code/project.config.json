@@ -96,6 +96,13 @@
 					"id": -1,
 					"name": "pages/analysisPart/ana",
 					"pathName": "pages/analysisPart/ana",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index2/index2",
+					"pathName": "pages/index2/index2",
 					"scene": null
 				}
 			]

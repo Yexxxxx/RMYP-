@@ -46,8 +46,7 @@ Page({
 
   //初始化图表
   init_echarts: function () {
-    this.echartsComponnet.init((canvas, width, height) => {
-      // 初始化图表
+    this.echartsComponnet.init((canvas, width, height) => {  
       const Chart = echarts.init(canvas, null, {
         width: width,
         height: height
@@ -73,15 +72,14 @@ Page({
         }
       }
       legendList.push(obj)
-
       that.data.series[i].data.reverse()
     }
     var option = {
       title: {
-        text: '近期日体态分析',
+        text: '近七日体态分析',
         left: 'center'
       },
-      // 折线图线条的颜色
+      // z
       color: ["#D0505D", "#67E0E3", "#9FE6B8"],
       // 折线图的线条代表意义
       legend: {
