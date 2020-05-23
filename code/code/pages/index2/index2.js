@@ -1,4 +1,4 @@
-var util = require('../../utils/util.js');
+
 
 //index.js
 //获取应用实例
@@ -16,15 +16,16 @@ Page({
     array: ['中国标准', '国际标准', '亚洲标准'],
     index: 0,
     score: 0,
+    scorer:0,
     height: 0,
     weight: 0,
     physicalCondition: '未知',
     weightStandard: 0,
     danger: '未知',
     charLt: '<',
-    gender:0
+    gender:0,
   },
- 
+  //gender性别映射
   onLoad: function () {
     var that = this
     const db = wx.cloud.database() 
@@ -33,15 +34,14 @@ Page({
       }).get({
         success:res=>{
           if (res.data[0].gender==2){
-          that.setData({gender:res.data[0].gender})
+            that.setData({gender:0})
           }
           else{
-          that.setData({gender:0})
+            that.setData({gender:res.data[0].gender})
           }
         }
       })
   },
-
   bindPickerChange: function (e) {
     this.setData({
       index: e.detail.value
@@ -57,13 +57,17 @@ Page({
       weight: e.detail.value
     })
   },
+  bindKeyAgeInput: function (e) {
+    this.setData({
+      age: e.detail.value
+    })
+  },
   calculateBtn: function (e) {
     if (!this.data.height) {
       wx.showToast({
         title: '请输入身高'
       })
       return false;
-      
     }
 
     if (!this.data.weight) {
@@ -75,22 +79,7 @@ Page({
     this.calculate();
     this.weightStandardCalculate();
     this.physicalConditionCalculate();
-    var time = util.formatTime(new Date());
-    this.setData({
-      time: time
-    });
-    var that = this
-    const db = wx.cloud.database()  
-    db.collection('data').add({
-      data: {
-        height:this.data.height,
-        time:time,
-        weight:this.data.weight
-      },
-      success: res => {
-        console.log("插入成功");
-      }
-    })
+    this.bfrcalculate();
   },
   //计算IBM值
   calculate: function () {
@@ -99,6 +88,16 @@ Page({
     score = (this.data.weight / (height * height)).toFixed(1);
     this.setData({
       score: score
+    })
+  },
+
+  //计算BFR值
+  bfrcalculate: function () {
+    let scorer = 0;
+    let score = this.data.score;
+    scorer = (1.2*score+0.23*this.data.age-5.4-10.8*this.data.gender).toFixed(1);
+    this.setData({
+      scorer: scorer
     })
   },
   //计算标准体重
@@ -124,7 +123,6 @@ Page({
           value = i;
       }
     }
-
 
     this.setData({
       physicalCondition: this.ruleConfig[value]
