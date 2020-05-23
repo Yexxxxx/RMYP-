@@ -69,7 +69,8 @@ Page({
       data: {
         height:this.data.height,
         time:time,
-        weight:this.data.weight
+       
+        bmi: this.data.score
       },
       success: res => {
         console.log("插入成功");
