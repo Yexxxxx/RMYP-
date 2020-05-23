@@ -1,4 +1,4 @@
-
+var util = require('../../utils/util.js');
 
 //index.js
 //获取应用实例
@@ -21,11 +21,27 @@ Page({
     physicalCondition: '未知',
     weightStandard: 0,
     danger: '未知',
-    charLt: '<'
+    charLt: '<',
+    gender:0
   },
+ 
   onLoad: function () {
-
+    var that = this
+    const db = wx.cloud.database() 
+    db.collection('user').where({
+      "_openid":app.globalData._openid
+      }).get({
+        success:res=>{
+          if (res.data[0].gender==2){
+          that.setData({gender:res.data[0].gender})
+          }
+          else{
+          that.setData({gender:0})
+          }
+        }
+      })
   },
+
   bindPickerChange: function (e) {
     this.setData({
       index: e.detail.value
@@ -47,6 +63,7 @@ Page({
         title: '请输入身高'
       })
       return false;
+      
     }
 
     if (!this.data.weight) {
@@ -58,6 +75,22 @@ Page({
     this.calculate();
     this.weightStandardCalculate();
     this.physicalConditionCalculate();
+    var time = util.formatTime(new Date());
+    this.setData({
+      time: time
+    });
+    var that = this
+    const db = wx.cloud.database()  
+    db.collection('data').add({
+      data: {
+        height:this.data.height,
+        time:time,
+        weight:this.data.weight
+      },
+      success: res => {
+        console.log("插入成功");
+      }
+    })
   },
   //计算IBM值
   calculate: function () {
@@ -91,6 +124,7 @@ Page({
           value = i;
       }
     }
+
 
     this.setData({
       physicalCondition: this.ruleConfig[value]
