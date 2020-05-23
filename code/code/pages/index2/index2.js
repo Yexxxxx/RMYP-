@@ -21,11 +21,24 @@ Page({
     physicalCondition: '未知',
     weightStandard: 0,
     danger: '未知',
-    charLt: '<'
+    charLt: '<',
+    gender:0
+  },
+  get_gender:function(){
+    var that = this
+    const db = wx.cloud.database() 
+    db.collection('user').where({
+      "_openid":app.globalData._openid
+      }).get({
+        success:res=>{
+          that.setData({gender:res.data[0].gender})
+        }
+      })
   },
   onLoad: function () {
-    
+    this.get_gender
   },
+
   bindPickerChange: function (e) {
     this.setData({
       index: e.detail.value
@@ -46,6 +59,7 @@ Page({
       wx.showToast({
         title: '请输入身高'
       })
+      console.log(this.data.gender)
       return false;
       
     }
@@ -109,6 +123,7 @@ Page({
           value = i;
       }
     }
+
 
     this.setData({
       physicalCondition: this.ruleConfig[value]
