@@ -28,7 +28,7 @@
   },
   "tabBar": {
     "color": "#a9b7b7",
-    "selectedColor": "#11cd6e",
+    "selectedColor": "#4CC3D9",
     "borderStyle": "black",
     "list": [
       {
@@ -50,10 +50,10 @@
         "text": "分析图"
       },
       {
-        "selectedIconPath": "images/tabBar/setting.png",
-        "iconPath": "images/tabBar/setting.png",
+        "selectedIconPath": "images/tabBar/my.png",
+        "iconPath": "images/tabBar/my.png",
         "pagePath": "pages/student/student",
-        "text": "设置"
+        "text": "我的"
       }
     ]
   },

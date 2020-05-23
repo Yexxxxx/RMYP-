@@ -1,7 +1,7 @@
 /**index.wxss**/
 .result{
   width:100%;
-  background-color: #22afcc;
+  background-color: #8FACBD;
 }
 .container{
   position: absolute;
@@ -35,7 +35,7 @@
    line-height: 80rpx;
    color: #f1f1f1;
    font-size: 24rpx;
-   background-color:#20a1bb;
+   background-color:rgb(112, 148, 168);
    flex: 1;
    padding-left: 40rpx;
  }
@@ -96,7 +96,7 @@
 }
 
 .calcu_btn {
-  background-color: #22afcc;
+  background-color:rgb(85, 151, 189);
   color: #fff;
   font-weight: 400;
 }
@@ -135,7 +135,7 @@
 }
 
 .table .thead{
-  background-color: #22afcc;
+  background-color: #8FACBD;
   color:#f1f1f1;
 }
 
