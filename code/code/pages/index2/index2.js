@@ -80,7 +80,7 @@ Page({
       this.calculate();
       this.weightStandardCalculate();
       this.physicalConditionCalculate();
-      return scorer==0;
+      scorer:0;
     }else{     
     this.calculate();
     this.weightStandardCalculate();
