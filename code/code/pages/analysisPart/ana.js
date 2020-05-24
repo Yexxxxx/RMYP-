@@ -8,18 +8,26 @@ Page({
     date02: '2020-5-21',
     //折现属性
     series:[{
-      data: ([34, 66, 45, 59, 37, 85, 60]).reverse(),
-      name:'体重',
+      data: ([55, 55.5, 53, 57, 56.5, 57.5, 60]).reverse(),
+      name:'体重(kg)',
       smooth:false,
-      type:'line'
+      type:'line',
+      yAxisIndex:0
     }, {
-        data: ([15, 12, 7, 23, 3, 14, 22]).reverse(),
-        name: '体脂率',
+        data: ([15, 16, 15, 17.5, 19, 16, 18]).reverse(),
+        name: 'BMI值(%)',
         smooth: false,
-        type: 'line'
+        type: 'line',
+        yAxisIndex:1
+      }, {
+        data: ([11, 11.5, 9, 17, 15, 14, 13]).reverse(),
+        name: 'BRF值(%)',
+        smooth: false,
+        type: 'line',
+        yAxisIndex:1
       }],
     // 默认7天
-    ascissaData:(['5-15','5-16','5-17','5-18','5-19','5-20','5-21']).reverse(),
+    ascissaData:(['5-15','5-16','5-17','5-18','5-19','5-20','5-21','5-22']).reverse(),
     ec: {
       lazyLoad: true
     }
@@ -76,11 +84,12 @@ Page({
     }
     var option = {
       title: {
-        text: '近七日体态分析',
-        left: 'center'
+        text: '体态分析',
+        left: 'center',
+        top:-5,
       },
       // z
-      color: ["#D0505D", "#67E0E3", "#9FE6B8"],
+      color: ["#D0505D", "#A6BFC3", "#006699"],
       // 折线图的线条代表意义
       legend: {
         itemWidth: 5, //小圆点的宽度
@@ -88,8 +97,8 @@ Page({
         selectedModel: 'single', //折线可多选
         inactiveColor: '#87CEEB',
         data: legendList,
-        bottom: 0,
-        left: 30,
+        top: 30,
+        left: 100,
         z: 100
       },
       // 刻度
@@ -114,21 +123,62 @@ Page({
         data: that.data.ascissaData.reverse(),
         // show: false
       },
-      yAxis: {
-        x: 'center',
+      dataZoom: [
+        {
+            type: 'slider',
+            start: 1,
+            end:70
+        },
+        {   // 这个dataZoom组件，也控制x轴。
+          type: 'inside', // 这个 dataZoom 组件是 inside 型 dataZoom 组件
+          start: 10,      // 左边在 10% 的位置。
+          end: 60         // 右边在 60% 的位置。
+      }
+    ],
+      yAxis: [{
+        name: '体重kg',
         type: 'value',
+        min: 0,
+        // max: 40,
+        //y标轴名称的文字样式
+        nameTextStyle: {
+        color: '#D0505D'
+        },
+        //网格线
         splitLine: {
-          lineStyle: {
-            type: 'dashed'
-          }
-        },
-        axisLine: { //y轴坐标是否显示
-          show: false
-        },
-        axisTick: { //y轴刻度小标是否显示
-          show: false
+        show: true,
+        lineStyle: {
+        color: ['#DDDDDD']
         }
-      },
+        },
+        //去掉刻度
+        axisTick: {
+        show: false
+        },
+        //去掉y轴线
+        axisLine: {
+        show: false
+        },
+        },
+        {
+        name: '百分比%',
+        type: 'value',
+        // max: 4,
+        min: 0,
+        nameTextStyle: {
+        color: '#006699'
+        },
+        //去掉刻度
+        axisTick: {
+        show: false
+        },
+        //去掉y轴线
+        axisLine: {
+        show: false
+        },
+         
+        }
+        ],
       series: that.data.series
     }
     return option
