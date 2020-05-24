@@ -28,6 +28,7 @@ Page({
     
   },
 =======
+
     charLt: '<',
     gender:0
   },
@@ -50,6 +51,7 @@ Page({
   },
 
 >>>>>>> b76cadb2ceb4edc5782f1aa7ce0b6c9825b61bc3
+
   bindPickerChange: function (e) {
     this.setData({
       index: e.detail.value
@@ -94,11 +96,13 @@ Page({
         height:this.data.height,
         time:time,
 <<<<<<< HEAD
+
         weight:this.data.weight,
         bmi: this.data.weight
 =======
         weight:this.data.weight
 >>>>>>> b76cadb2ceb4edc5782f1aa7ce0b6c9825b61bc3
+
       },
       success: res => {
         console.log("插入成功");
