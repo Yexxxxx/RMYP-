@@ -16,7 +16,7 @@ Page({
     array: ['中国标准', '国际标准', '亚洲标准'],
     index: 0,
     score: 0,
-    scorer:0,
+    scorer: 0,
     height: 0,
     weight: 0,
     physicalCondition: '未知',
@@ -24,10 +24,14 @@ Page({
     danger: '未知',
     charLt: '<',
     gender:0,
+    time:"",
+    status:1,
   },
   //gender性别映射
   onLoad: function () {
     var that = this
+    this.get_data();
+    this.status();
     const db = wx.cloud.database() 
     db.collection('user').where({
       "_openid":app.globalData._openid
@@ -41,6 +45,37 @@ Page({
           }
         }
       })
+  },
+  get_data:function(){
+    var timestamp = Date.parse(new Date());
+    var date = new Date(timestamp);
+    //获取年份  
+    var Y =date.getFullYear();
+    //获取月份  
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    //获取当日日期 
+    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate(); 
+    this.setData({
+      time: Y + '-'  + M+ '-' + D
+    })
+  },
+  status:function(){
+    var that = this
+    const db = wx.cloud.database()  
+    db.collection('data').where({
+      "_openid":that.data.openid,
+      "time":that.data.time
+    }).get({
+      success:res=>{
+        if(res.data.length>0){
+          that.setData({status:1})
+          console.log("设"+that.data.status)
+        }else{
+          that.setData({status:0})
+          console.log("设"+that.data.status)
+        }
+      }
+    })
   },
   bindPickerChange: function (e) {
     this.setData({
@@ -76,19 +111,54 @@ Page({
       })
       return false;
     }
-    if (!this.data.age) {    
+    
+    if (!this.data.age) {   
       this.calculate();
       this.weightStandardCalculate();
       this.physicalConditionCalculate();
-      return scorer==0;
-    }else{     
-    this.calculate();
-    this.weightStandardCalculate();
-    this.physicalConditionCalculate();
-    this.bfrcalculate();
+      scorer:0;
+    }else{  
+      this.calculate();
+      this.weightStandardCalculate();
+      this.physicalConditionCalculate();
+      this.bfrcalculate();
     }
-    
-  },
+    console.log(this.data.time);
+    console.log("查"+this.data.status)
+    const db = wx.cloud.database()
+    if(this.data.status==1){
+      db.collection('data').where({
+        "_openid":this.data.openid,
+        time:this.data.time
+      }).update({
+      data: {
+        height: this.data.height,
+        weight: this.data.weight,
+        age:this.data.age,
+        bmi:this.data.score,
+        bfr:this.data.scorer,
+      },
+      success: res => {
+          console.log("更新成功");
+     } 
+  })
+}else{
+  db.collection('data').add({
+    data: {
+        time:this.data.time,
+        height: this.data.height,
+        weight: this.data.weight,
+        age:this.data.age,
+        bmi:this.data.score,
+        bfr:this.data.scorer,
+      },
+      success: res => {
+        console.log("插入成功");
+        this.status();
+      }
+  })
+}
+},
 
   //计算IBM值
   calculate: function () {
