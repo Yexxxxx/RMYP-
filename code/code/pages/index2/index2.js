@@ -22,6 +22,13 @@ Page({
     physicalCondition: '未知',
     weightStandard: 0,
     danger: '未知',
+<<<<<<< HEAD
+    charLt: '<'
+  },
+  onLoad: function () {
+    
+  },
+=======
     charLt: '<',
     gender:0,
   },
@@ -42,6 +49,11 @@ Page({
         }
       })
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> b76cadb2ceb4edc5782f1aa7ce0b6c9825b61bc3
+>>>>>>> 1dbd9dd7c421a23b37d73e8bf4036711d5cc3f76
   bindPickerChange: function (e) {
     this.setData({
       index: e.detail.value
@@ -85,9 +97,33 @@ Page({
     this.calculate();
     this.weightStandardCalculate();
     this.physicalConditionCalculate();
+<<<<<<< HEAD
     this.bfrcalculate();
     }
     
+=======
+    var time = util.formatTime(new Date());
+    this.setData({
+      time: time
+    });
+    var that = this
+    const db = wx.cloud.database()  
+    db.collection('data').add({
+      data: {
+        height:this.data.height,
+        time:time,
+<<<<<<< HEAD
+        weight:this.data.weight,
+        bmi: this.data.weight
+=======
+        weight:this.data.weight
+>>>>>>> b76cadb2ceb4edc5782f1aa7ce0b6c9825b61bc3
+      },
+      success: res => {
+        console.log("插入成功");
+      }
+    })
+>>>>>>> 1dbd9dd7c421a23b37d73e8bf4036711d5cc3f76
   },
 
   //计算IBM值
