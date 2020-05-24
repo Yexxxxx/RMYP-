@@ -76,11 +76,20 @@ Page({
       })
       return false;
     }
+    if (!this.data.age) {    
+      this.calculate();
+      this.weightStandardCalculate();
+      this.physicalConditionCalculate();
+      return scorer==0;
+    }else{     
     this.calculate();
     this.weightStandardCalculate();
     this.physicalConditionCalculate();
     this.bfrcalculate();
+    }
+    
   },
+
   //计算IBM值
   calculate: function () {
     let score = 0;
