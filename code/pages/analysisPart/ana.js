@@ -98,7 +98,7 @@ Page({
         inactiveColor: '#87CEEB',
         data: legendList,
         top: 30,
-        left: 100,
+        left: 85,
         z: 100
       },
       // 刻度
