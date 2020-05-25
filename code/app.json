@@ -50,10 +50,10 @@
         "text": "分析图"
       },
       {
-        "selectedIconPath": "images/tabBar/my.png",
-        "iconPath": "images/tabBar/my.png",
+        "selectedIconPath": "images/tabBar/setting.png",
+        "iconPath": "images/tabBar/setting.png",
         "pagePath": "pages/student/student",
-        "text": "我的"
+        "text": "设置"
       }
     ]
   },

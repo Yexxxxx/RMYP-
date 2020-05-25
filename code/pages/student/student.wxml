@@ -1,35 +1,30 @@
-<view class="userInfo">
-  <view class="heard">
-    <open-data type="userAvatarUrl" ></open-data>
-  </view>
-  <view class="account">
-    <open-data type="userNickName"></open-data>
+<view class='content'>
+  <view class='nav'>
+    <view class='top'>
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class='nickname'>
+      <open-data type="userNickname"></open-data> 
     </view>
   </view>
-<view class="list">
-    <view class="student" >
-        <image src="/images/students/mycoach.png" mode="widthFix"></image>
-        <view class="student-detail" bindtap="goto_coach">
-               <text>我的教练</text>
-        </view>
+    <view class='item'>
+      <text class='left'>性别：</text><text class='right'> 
+      <open-data type="userGender"></open-data>
+      </text>
     </view>
-    <view class="student" >
-          <image src="/images/students/ticedangan.png" mode="widthFix"></image>
-          <view class="student-detail" bindtap="goto_logout">
-               <text>体测档案</text>
-          </view>
-  </view>
-  <view class="student" >
-          <image src="/images/students/passwd_alter.png" mode="widthFix"></image>
-          <view class="student-detail" bindtap="goto_passwd_alter">
-               <text>修改密码</text>
-          </view>
-  </view>
-  <view class="student" >
-          <image src="/images/students/logout.png" mode="widthFix"></image>
-          <view class="student-detail" bindtap="goto_logout">
-               <text>注销</text>
-          </view>
-  </view>
+    <view class='item'>
+      <text class='left'>身高：</text><text class='right'>{{height}}</text>
+    </view>
+    <view class='item'>
+     <text class='left'> 年龄：</text><text class='right'>{{age}}</text>
+    </view>
+    <view class='item'>
+      <text class='left'>手机：</text><text class='right'>{{phone}}</text>
+    </view>
+
+    <view class='item' bindtap='exit'>
+      <text class='left'>退出：</text><text class='right'>>>></text>
+    </view>
+  
 </view>
 

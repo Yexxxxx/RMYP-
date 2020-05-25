@@ -1,65 +1,35 @@
-.userInfo{
-  width: 100%;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  padding-left: 30rpx;
-  background-color:#DDEAF6;
+.nav{
+  background-color: #fff;
 }
-.heard{
-  width:100rpx;
-  height: 100rpx;
-  border-radius: 10%;
+.top{
+  margin: 0 auto;  
+  display: flex;
+ 
   overflow: hidden;
-  margin: 10rpx 0;
-}
-.account{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  font-size: 30rpx;
-  height: 100%;
-  font-weight: 600;
-
-}
-.account text{
-  font-size: 24rpx;
-  font-weight: 400;
-  margin: 10rpx 0;
-}
-.list{
-  width: 100%;
-  height: 100vh;
-  background-color: #eee;
-}
-
-.student{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  margin-bottom:  20rpx;
-  background-color:white;
-  padding-left: 30rpx;
-  height: 80rpx;
-
-}
-
-.student image{
-  width:50rpx;
+  width: 161rpx;
+  height: 161rpx;
   border-radius: 50%;
 }
-
-.student .student-detail{
-  width: 86%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.nickname{
+margin-bottom: 10rpx;
+text-align: center;
 }
-
-.student text{
-  margin-left: 20rpx;
-  font-size: 40rpx;
+.item{
+height: 70rpx;
+background-color: #fff;
+margin: 20rpx;
+display: flex;
+border-radius: 20rpx;
+}
+.left{
+display: flex;
+justify-content: flex-start;
+flex-grow: 1;
+}
+.right{
+display: flex;
+justify-content: flex-end;
+flex-grow: 1;
+color: #ccc;
+margin-right: 20rpx;
 }
