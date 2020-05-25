@@ -1,4 +1,5 @@
 //wx.cloud.init() 
+var app = getApp();
 Page({  
   /**   * 页面的初始数据   */  
   data: {     
@@ -33,6 +34,7 @@ onLoad:function(options) {
      complete: res => {
       console.log('云函数获取到的openid: ', res.result.openid)
       var openid = res.result.openid;
+      app.globalData._openid=openid;//全局变量
       that.setData({
        openid: openid
       })
