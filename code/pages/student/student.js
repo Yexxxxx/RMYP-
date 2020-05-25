@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    age:"",
+    phone:"",
+    gender:'',
+    height:'',
+    weight:'',
+    
   },
   //体测档案
   goto_bodydata_select:function(){
@@ -35,7 +40,41 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const db = wx.cloud.database() 
+    db.collection('data').where({
+      "_openid":"oKGUL4_f55SAlzzcw1VWUVbyosgU"
+      }).get({
+        success:res=>{
+          this.setData({
+            age:res.data[0].age,
+            height:res.data[0].height,
+            weight:res.data[0].weight,
+          })
+          
+        }
+      }) ,
+      db.collection('user').where({
+        "_openid":"oKGUL4_f55SAlzzcw1VWUVbyosgU"
+        }).get({
+          success:res=>{
+            if(res.data[0].gender==1){
+             this.setData({
+               gender:"男",
+             })
+            }
+             if(res.data[0].gender==2){
+              this.setData({
+                gender:"女",
+              })
+             }
+             if(res.data[0].gender==0){
+              this.setData({
+                gender:"未知",
+              })
+             }
+          }
+        })     
+     
   },
 
   /**
