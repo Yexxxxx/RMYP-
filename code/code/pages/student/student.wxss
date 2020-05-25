@@ -30,6 +30,6 @@ flex-grow: 1;
 display: flex;
 justify-content: flex-end;
 flex-grow: 1;
-color: #ccc;
+color: black;
 margin-right: 20rpx;
 }
