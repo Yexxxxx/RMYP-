@@ -3,9 +3,7 @@ import * as echarts from '../ec-canvas/echarts';
 
 Page({
   data: {
-    // 默认数据
-    date01:'2020-5-15',
-    date02: '2020-5-21',
+
     //折现属性
     series:[{
       data: ([55, 55.5, 53, 57, 56.5, 57.5, 60]).reverse(),
@@ -71,54 +69,16 @@ Page({
   })
   this.echartsComponnet = this.selectComponent('#mychart');
   that.init_echarts()
-  // db.setOption(this.getOption());
-  // return db;
+
  } 
 })
-// that.setData({
-//   ascissaData:[(time_list).reverse()],
-//   series:[{
-//   data:(weight_list).reverse(), 
-//   name:'体重(kg)',
-//   smooth:false,
-//   type:'line',
-//   yAxisIndex:0},{ 
-//     data:(bmi_list).reverse(),
-//     name: 'BMI值(%)',
-//     smooth: false,
-//     type: 'line',
-//     yAxisIndex:1
-//   },{
-//     data:(bfr_list).reverse(), 
-//     name: 'BRF值(%)',
-//     smooth: false,
-//     type: 'line',
-//     yAxisIndex:1
-//   }]
-// })
-// db.setOption(this.getOption());
-// return db;
+
 },
   onLoad: function () {
     var that = this
     that.get_data()
     
-    // this.echartsComponnet = this.selectComponent('#mychart');
-    // that.init_echarts()
-  },
 
-  // 日期选择器
-  bindDateChange01: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      date01: e.detail.value
-    })
-  },
-  bindDateChange02: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      date02: e.detail.value
-    })
   },
 
   //初始化图表
@@ -193,7 +153,7 @@ Page({
       xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: that.data.ascissaData[0],
+        data: that.data.ascissaData[0].reverse(),
         // show: false
       },
       dataZoom: [
@@ -257,5 +217,5 @@ Page({
     return option
   },
 
-  // 获取折线图数据
+
 })
