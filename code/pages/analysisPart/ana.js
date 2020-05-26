@@ -32,10 +32,79 @@ Page({
       lazyLoad: true
     }
   },
-
+  get_data:function(){
+    var that = this
+    var time_list = []
+    var bmi_list = []
+    var bfr_list =[]
+    var weight_list=[]
+   const db = wx.cloud.database()
+   db.collection('data').where({"_openid":"oKGUL4_f55SAlzzcw1VWUVbyosgU"}).get({
+   success:(res)=>{
+     wx:for(let i = 0 ; i < res.data.length ; ++i){
+       time_list[i]= res.data[i].time.substring(5,10)
+       bmi_list[i]=res.data[i].bmi
+       bfr_list[i]=res.data[i].bfr
+       weight_list[i]=res.data[i].weight
+      
+   }
+   that.setData({
+    ascissaData:[(time_list).reverse()],
+    series:[{
+    data:(weight_list).reverse(), 
+    name:'体重(kg)',
+    smooth:false,
+    type:'line',
+    yAxisIndex:0},{ 
+      data:(bmi_list).reverse(),
+      name: 'BMI值(%)',
+      smooth: false,
+      type: 'line',
+      yAxisIndex:1
+    },{
+      data:(bfr_list).reverse(), 
+      name: 'BRF值(%)',
+      smooth: false,
+      type: 'line',
+      yAxisIndex:1
+    }]
+  })
+  this.echartsComponnet = this.selectComponent('#mychart');
+  that.init_echarts()
+  // db.setOption(this.getOption());
+  // return db;
+ } 
+})
+// that.setData({
+//   ascissaData:[(time_list).reverse()],
+//   series:[{
+//   data:(weight_list).reverse(), 
+//   name:'体重(kg)',
+//   smooth:false,
+//   type:'line',
+//   yAxisIndex:0},{ 
+//     data:(bmi_list).reverse(),
+//     name: 'BMI值(%)',
+//     smooth: false,
+//     type: 'line',
+//     yAxisIndex:1
+//   },{
+//     data:(bfr_list).reverse(), 
+//     name: 'BRF值(%)',
+//     smooth: false,
+//     type: 'line',
+//     yAxisIndex:1
+//   }]
+// })
+// db.setOption(this.getOption());
+// return db;
+},
   onLoad: function () {
-    this.echartsComponnet = this.selectComponent('#mychart');
-    this.init_echarts()
+    var that = this
+    that.get_data()
+    
+    // this.echartsComponnet = this.selectComponent('#mychart');
+    // that.init_echarts()
   },
 
   // 日期选择器
@@ -54,12 +123,14 @@ Page({
 
   //初始化图表
   init_echarts: function () {
+    var that = this
+
     this.echartsComponnet.init((canvas, width, height) => {  
       const Chart = echarts.init(canvas, null, {
         width: width,
         height: height
       });
-      Chart.setOption(this.getOption());
+      Chart.setOption(that.getOption());
       // 注意这里一定要返回 chart 实例，否则会影响事件处理等
       return Chart;
     });
@@ -68,8 +139,10 @@ Page({
   // 获取数据
   getOption: function () {
     var that = this
+    
     console.log(that.data.series)
     console.log(that.data.ascissaData)
+    console.log(that.data.ascissaData[0])
     var legendList = []
     for (var i in that.data.series) {
       var obj = {
@@ -120,7 +193,7 @@ Page({
       xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: that.data.ascissaData.reverse(),
+        data: that.data.ascissaData[0],
         // show: false
       },
       dataZoom: [
@@ -185,28 +258,4 @@ Page({
   },
 
   // 获取折线图数据
-  getChartData: function () {
-    var that = this
-    console.log(that.data.date01, that.data.date02)
-    wx.request({
-      url: 'http://weixin.frp.kaigejava.com/salary/getSalaryByDate',
-      data: {
-        start: that.data.date01,
-        end: that.data.date02,
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        // 'Authorization': 'Bearer ' + wx.getStorageSync('token')
-      },
-      success: function (res) {
-        console.log(res);
-        var data = res.data.data
-        that.setData({
-          series: data.series,
-          ascissaData: data.ascissaData //默认横坐标
-        })
-        that.init_echarts()
-      }
-    })
-  },
 })
