@@ -6,26 +6,26 @@ Page({
 
     //折现属性
     series:[{
-      data: ([55, 55.5, 53, 57, 56.5, 57.5, 60]).reverse(),
+      data: ([]).reverse(),
       name:'体重(kg)',
       smooth:false,
       type:'line',
       yAxisIndex:0
     }, {
-        data: ([15, 16, 15, 17.5, 19, 16, 18]).reverse(),
+        data: ([]).reverse(),
         name: 'BMI值(%)',
         smooth: false,
         type: 'line',
         yAxisIndex:1
       }, {
-        data: ([11, 11.5, 9, 17, 15, 14, 13]).reverse(),
+        data: ([]).reverse(),
         name: 'BRF值(%)',
         smooth: false,
         type: 'line',
         yAxisIndex:1
       }],
     // 默认7天
-    ascissaData:(['5-15','5-16','5-17','5-18','5-19','5-20','5-21','5-22']).reverse(),
+    ascissaData:([]).reverse(),
     ec: {
       lazyLoad: true
     }
@@ -37,7 +37,7 @@ Page({
     var bfr_list =[]
     var weight_list=[]
    const db = wx.cloud.database()
-   db.collection('data').where({"_openid":"oKGUL4_f55SAlzzcw1VWUVbyosgU"}).get({
+   db.collection('data').where({"_openid":app.globalData._openid}).get({
    success:(res)=>{
      wx:for(let i = 0 ; i < res.data.length ; ++i){
        time_list[i]= res.data[i].time.substring(5,10)
