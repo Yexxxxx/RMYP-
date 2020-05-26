@@ -11,8 +11,8 @@
 </view>
 <view wx:if="{{isHide}}">
   <view class='headView'>
-  <image src='{{src}}'></image>
-  <view class='titleText'>{{name}}</view>
+  <image src='{{src}}' class="touxiang"></image>
+  <view class='wechatname'>{{name}}</view>
   <button class='authBtn' bindtap="goto_student">登录</button>
   </view>
 </view>

@@ -15,26 +15,51 @@
   height: 50px;
 }
 .titleText {
-  margin-left: 25px;
-  margin-top: 25px;
+  
+  display:flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
   font-size: 14px;
   color: #020e0f;
-  text-align: center;
+  
 }
 .contentText {
-  margin-left: 25px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
   font-size: 14px;
   color: #666;
-  text-align: center;
+  
+  
 }
 .authBtn {
-  margin-top: 35px;
-  margin-left: 25px;
-  margin-right: 25px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   height: 45px;
   background-color: #32CD32;
   font-size: 17.5px;
+  width: 200rpx
 }
+.touxiang{
+  border-top:200px;
+    margin: 0 auto;  
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 300rpx;
+    width: 300rpx;
+    border-radius: 50%;
+}
+.wechatname{
+  color: black;
+  size: 20rpx;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 20px;
+  border-color:white;
+  }

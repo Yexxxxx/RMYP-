@@ -25,16 +25,27 @@ Page({
     charLt: '<',
     gender:0,
     time:"",
-    status:1,
+    status:"",
+    _openid:null,
   },
   //gender性别映射
   onLoad: function () {
     var that = this
-    this.get_data();
-    this.status();
+    that.get_data();
+    
+  },
+  get_openid:function(){
+    let that = this
+      that.setData({
+        _openid:app.globalData._openid
+      })
+      that.status()
+  },
+  get_gender:function() {
+    var that = this
     const db = wx.cloud.database() 
     db.collection('user').where({
-      "_openid":app.globalData._openid
+      _openid:this.data._openid
       }).get({
         success:res=>{
           if (res.data[0].gender==2){
@@ -43,10 +54,12 @@ Page({
           else{
             that.setData({gender:res.data[0].gender})
           }
+          
         }
       })
   },
   get_data:function(){
+    var that = this
     var timestamp = Date.parse(new Date());
     var date = new Date(timestamp);
     //获取年份  
@@ -58,13 +71,14 @@ Page({
     this.setData({
       time: Y + '-'  + M+ '-' + D
     })
+    that.get_openid();
   },
   status:function(){
     var that = this
     const db = wx.cloud.database()  
     db.collection('data').where({
-      "_openid":that.data.openid,
-      "time":that.data.time
+      _openid:that.data._openid,
+      time:that.data.time
     }).get({
       success:res=>{
         if(res.data.length>0){
@@ -74,6 +88,7 @@ Page({
           that.setData({status:0})
           console.log("设"+that.data.status)
         }
+        that.get_gender()
       }
     })
   },
@@ -128,7 +143,7 @@ Page({
     const db = wx.cloud.database()
     if(this.data.status==1){
       db.collection('data').where({
-        "_openid":this.data.openid,
+        "_openid":this.data._openid,
         time:this.data.time
       }).update({
       data: {

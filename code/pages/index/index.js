@@ -8,8 +8,8 @@ Page({
     src:"",
     gender:"",
     isHide:false,
-    openid:"",
-    status:null,
+    _openid:null,
+    status:1,
   },  
 onLoad:function(options) {
     //查看是否授权
@@ -25,27 +25,28 @@ onLoad:function(options) {
       }
     });
     that.getOpenid();
-    that.status();
+    
   },
   getOpenid() {
     let that = this;
     wx.cloud.callFunction({
      name:'getOpenid',
      complete: res => {
-      console.log('云函数获取到的openid: ', res.result.openid)
       var openid = res.result.openid;
       app.globalData._openid=openid;//全局变量
       that.setData({
-       openid: openid
+       _openid:openid
       })
+      that.status();
      }
     })
   },
   status:function(){
     var that = this
     const db = wx.cloud.database()  
-    db.collection('user').where({"_openid":that.data.openid}).get({
+    db.collection('user').where({_openid:that.data._openid}).get({
       success:res=>{
+        console.log(res.data.length)
         if(res.data.length>0){
           that.setData({status:1})
           console.log(that.data.status)
