@@ -40,8 +40,8 @@
   align-items: center;
   height: 45px;
   background-color: #32CD32;
-  font-size: 15px;
-  width: 300rpx
+  font-size: 17.5px;
+  width: 200rpx
 }
 .touxiang{
   border-top:200px;
