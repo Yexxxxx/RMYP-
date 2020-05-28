@@ -27,6 +27,9 @@ Page({
     time:"",
     status:"",
     _openid:null,
+    max_heartbeat : 0,
+    min_heartbeat : 0,
+    BMD:0,
   },
   //gender性别映射
   onLoad: function () {
@@ -130,13 +133,15 @@ Page({
     if (!this.data.age) {   
       this.calculate();
       this.weightStandardCalculate();
-      this.physicalConditionCalculate();
+      this.heartbeatStandardCalculat()
       scorer:0;
     }else{  
       this.calculate();
       this.weightStandardCalculate();
       this.physicalConditionCalculate();
+      this.physicalConditionCalculate();
       this.bfrcalculate();
+      this.BMDStandardCalculate()
     }
     console.log(this.data.time);
     console.log("查"+this.data.status)
@@ -201,6 +206,26 @@ Page({
     weight = (this.STANDARD * (height * height)).toFixed(1);
     this.setData({
       weightStandard: weight
+    })
+  },
+  //计算骨密度
+  BMDStandardCalculate: function () {
+    let BMD = 0;
+    BMD  = (this.data.weight-this.data.age).toFixed(1);
+    this.setData({
+      BMD:BMD
+    })
+  },
+  //计算心跳频率
+  
+heartbeatStandardCalculat:function(){
+    let max_heartbeat = null;
+    let min_heartbeat = null;
+    max_heartbeat = ((220-this.data.age)*0.8).toFixed(1);
+    min_heartbeat = ((220-this.data.age)*0.6).toFixed(1);
+    this.setData({
+      max_heartbeat: max_heartbeat,
+      min_heartbeat: min_heartbeat,
     })
   },
   //身体状况计算
