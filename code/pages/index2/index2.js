@@ -32,7 +32,7 @@ Page({
   onLoad: function () {
     var that = this
     that.get_data();
-    
+    wx.showShareMenu()
   },
   get_openid:function(){
     let that = this

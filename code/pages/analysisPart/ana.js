@@ -75,10 +75,11 @@ Page({
 
 },
   onLoad: function () {
+    wx.showShareMenu()
+  },
+  onShow:function(){
     var that = this
     that.get_data()
-    
-
   },
 
   //初始化图表
