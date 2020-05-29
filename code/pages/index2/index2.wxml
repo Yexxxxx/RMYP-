@@ -1,16 +1,24 @@
 <!--index.wxml-->
 <view class="container">
 	<view class="result clearfix">
-  <view class="pos">
-		<view class="bmi">
-			<view class="title">BMI值</view>
-			<view class="score">{{score}}</view>
+		<view class="pos">
+			<view class="bmi">
+				<view class="title">BMI值</view>
+				<view class="score">{{score}}
+				</view>
+
+			<view class="bmi bfr bl">
+				<view class="title">体脂率<text class="tz"></text></view>
+				<view class="score score-bfr">{{scorer}}</view>
+				</view>
 		</view>
-		<view class="bfr">
-			<view class="title-bfr">BFR值</view>
-			<view class="score-bfr">{{scorer}}</view>
 		</view>
-    </view>
+		<view class="tip heart-concert">
+			<view class="bmr-value">基础代谢率：<text class="">{{BMR}}</text></view>
+			<view class="maxh-heart">最大心率：<text class="">\n{{max_heartbeat}}</text></view>
+			<view class="minh-heart">最小心率：<text class="">\n{{min_heartbeat}}</text></view>
+			<view class="bmd-value">骨密度：<text class="">\n{{BMD}}</text></view>
+		</view>
 		<view class="tip first-tip">
 			<view class="physical-condition">身体状况：<text class="">{{physicalCondition}}</text></view>
 			<view class="weight-standard no-border">身高标准体重：<text class="">{{weightStandard}}kg</text></view>
@@ -31,7 +39,7 @@
 			<text class="unit">kg</text>
 			<input type="digit" bindinput="bindKeyWeightInput" maxlength="6" class="" />
 		</view>
-    		<view class="item">
+		<view class="item">
 			<text class="label">年龄</text>
 			<text class="unit">岁</text>
 			<input type="digit" bindinput="bindKeyAgeInput" maxlength="3" class="" />

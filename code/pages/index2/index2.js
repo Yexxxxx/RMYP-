@@ -1,5 +1,3 @@
-
-
 //index.js
 //获取应用实例
 var app = getApp();
@@ -30,6 +28,7 @@ Page({
     max_heartbeat : 0,
     min_heartbeat : 0,
     BMD:0,
+    BMR:0,
   },
   //gender性别映射
   onLoad: function () {
@@ -133,7 +132,7 @@ Page({
     if (!this.data.age) {   
       this.calculate();
       this.weightStandardCalculate();
-      this.heartbeatStandardCalculat()
+   
       scorer:0;
     }else{  
       this.calculate();
@@ -141,7 +140,10 @@ Page({
       this.physicalConditionCalculate();
       this.physicalConditionCalculate();
       this.bfrcalculate();
-      this.BMDStandardCalculate()
+      this.BMDStandardCalculate();
+      this.BMRStandardCalculate();
+      this.heartbeatStandardCalculat()
+
     }
     console.log(this.data.time);
     console.log("查"+this.data.status)
@@ -215,6 +217,21 @@ Page({
     this.setData({
       BMD:BMD
     })
+  },
+  //BMR基础代谢率，单位kcal
+  BMRStandardCalculate: function () {
+    let BMR = 0
+    if(this.data.gender==1){
+    BMR = (66+(13.7*this.data.weight)+(5*this.data.height)-(6.8*this.data.age)).toFixed(1);
+    this.setData({
+      BMR: BMR
+    })
+  }else if(this.data.gender==0){
+    BMR = (655+(9.6*this.data.weight)+(1.7*this.data.height)-(4.7*this.data.age)).toFixed(1);
+    this.setData({
+      BMR: BMR
+    })
+  }
   },
   //计算心跳频率
   
