@@ -31,6 +31,10 @@
           <text class='left'>退出：</text>
           <text class='right'>>>></text>
     </view>
+   <button class='button' open-type="feedback">
+ <text class='button_title'>意见反馈</text>
+</button>
+
   
 </view>
 
