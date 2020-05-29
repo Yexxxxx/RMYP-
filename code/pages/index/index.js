@@ -6,6 +6,7 @@ Page({
     canIUse:true,
     name:"",
     src:"",
+    src_1:"../../images/coach/app图标.jpg",
     gender:"",
     isHide:false,
     _openid:null,

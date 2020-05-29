@@ -2,23 +2,14 @@
   "pages": [
     "pages/index/index",
     "pages/index2/index2",
+    "pages/index1/index1",
     "pages/analysisPart/ana",
 
     "pages/search/search",
     "pages/404/404",
-    "pages/logs/logs",
     
-    "pages/login/login",
-    "pages/sign/sign",
-    "pages/passwd_back/passwd_back",
-    "pages/passwd_alter/passwd_alter",
     "pages/trainer/trainer",
-    "pages/student/student",
-    "pages/sutdent_select_trainer/sutdent_select_trainer",
-    "pages/bodydata_writer/bodydata_writer",
-    "pages/bodydata_select/bodydata_select",
-    "pages/bodydata_read/bodydata_read",
-    "pages/bodydata_plot/bodydata_plot"
+    "pages/student/student"
   ],
   "window": {
     "backgroundTextStyle": "light",
