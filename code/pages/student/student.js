@@ -43,12 +43,12 @@ Page({
       "_openid":app.globalData._openid
       }).get({
         success:res=>{
+          let x = res.data.length-1
           this.setData({
-            age:res.data[0].age,
-            height:res.data[0].height,
-            weight:res.data[0].weight,
+            age:res.data[x].age,
+            height:res.data[x].height,
+            weight:res.data[x].weight,
           })
-          
         }
       }) ,
       db.collection('user').where({

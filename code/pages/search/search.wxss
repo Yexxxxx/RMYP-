@@ -10,6 +10,22 @@
   border-top: 1rpx solid #D7D6DC;
   border-bottom: 1rpx solid #D7D6DC;
 }
+/* .bg{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url("../../images/background/1.png") 
+  no-repeat #000;
+  background-size:cover;
+  z-index:-1;
+  } */
+  
+  .bg-img{
+      width : 100%;
+      height : 100%;
+  }
 .weui-icon-search_in-box {
   position: absolute;
   left: 10px;

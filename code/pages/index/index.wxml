@@ -1,7 +1,6 @@
 <view wx:if="{{canIUse}}">
   <view class='headView'>
     <view class='headImageView'>
-      <image class='headImage' src='/pages/imageSource/IMG_3456.png' mode='scaleToFill'></image>
     </view>
     <image src='{{src}}'></image>
     <view class='titleText'>申请获取以下权限</view>

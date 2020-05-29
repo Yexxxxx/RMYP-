@@ -118,7 +118,7 @@ onLoad:function(options) {
  },
  goto_student:function(){
   wx.switchTab({
-    url: '../student/student',
+    url: '../index2/index2',
   })
 },
 })

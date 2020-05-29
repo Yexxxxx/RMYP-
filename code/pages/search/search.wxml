@@ -1,4 +1,7 @@
 <!--pages/search/search.wxml-->
+  <view class="bg" >
+    <image class="bg-image" mode="scaleToFill"></image>
+  </view>
 <view class="weui-search-bar">
    <view class="weui-search-bar__form">
     <view class="weui-search-bar__box">
@@ -11,7 +14,7 @@
   </view>
     <view class="weui-search-bar__cancel-btn" bindtap="search">
          <text data-key='search'>搜索</text>
-     </view>
+
 
 
      <!-- 搜索结果展示 -->
@@ -22,4 +25,4 @@
     <!-- 当查询不到结果的时候 -->
     <view class="noresult">{{item.noresult}}</view>
 </view>
-
+</view>

@@ -8,31 +8,38 @@ Page({
     height:"",
     time:"",
     weight:"",
-    list:[{time:"",BMI:""}]
+    time:[],
+    bmi:[],
+    bfr:[],
+    weight:[]
   },
   onLoad:function() {
+    let that = this
+    this.get_list()
+    console.log(that.data.bmi)
+  },
+  get_list:function() {
     var that = this
-    var timestamp = Date.parse(new Date());
-  var date = new Date(timestamp);
-//获取年份  
-  var Y =date.getFullYear();
-//获取月份  
-var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-//获取当日日期 
-var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate(); 
-console.log("当前时间：" + Y + '年'  + M+ '月' + D+ '日' ); 
-
+    var time = []
+    var bmi = []
+    var bfr =[]
+    var weight=[]
     const db = wx.cloud.database()
-    db.collection('data').where({"_openid":"oKGUL45j6BATXCzol6NWegrIiAkk"}).get({
+    db.collection('data').where({"_openid":"oKGUL4_f55SAlzzcw1VWUVbyosgU"}).get({
     success:function(res){
-     for(let i=0;i<res.data.length;i++){
-      var dsf=res.data[i].time //25 20
-      var bm=res.data[i].bmi
-      var newlist = [{time:dsf,BMI:bm}]
-      console.log(newlist)
-      newlist.concat(this.data.list)
-   } 
-  }
-})
+      for(let i = 0 ; i < res.data.length ; ++i){ 
+        time.push(res.data[i].time)
+        bmi.push(res.data[i].bmi)
+        bfr.push(res.data[i].bfr)
+        weight.push(res.data[i].weight)
+    }
+    that.setData({
+      time:time,
+      bmi:bmi,
+      bfr:bfr,
+      weight:weight
+    })
+  } 
+  })
 },
 })
