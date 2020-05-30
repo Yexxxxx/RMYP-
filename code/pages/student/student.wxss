@@ -1,18 +1,98 @@
-.nav{
-  background-color: #fff;
+Page {
+  font-size: 14px;
 }
-.top{
-  margin: 0 auto;  
+
+.top {
+  width: 100%;
+  height: 180px;
+  background: #23EBB9;
+  padding-top: 15px;
+  position: relative;
+}
+
+.center {
+  width: 95%;
+  height: 150px;
+  background: white;
   display: flex;
- 
-  overflow: hidden;
-  width: 161rpx;
-  height: 161rpx;
-  border-radius: 50%;
+  flex-direction: column;
+  margin: 0 auto;
+  border-radius: 5px;
 }
-.nickname{
-margin-bottom: 10rpx;
-text-align: center;
+
+.center_top {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.center_img {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.center_info {
+  display: flex;
+  
+  margin-top: 50rpx;
+  margin-left: 30px;
+}
+.center_down {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 35px;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+
+.center_height {
+  width: 50%;
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+}
+
+.down_text {
+  height: 35px;
+  line-height: 35px;
+  margin-left: 10rpx;
+  color: black;
+  size:32rpx;
+}
+
+
+
+.center_weight {
+  width: 50%;
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.gif-wave {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;
+  height: 100rpx;
+}
+
+.content{
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  
+
 }
 .item{
 height: 70rpx;
@@ -33,3 +113,40 @@ flex-grow: 1;
 color: black;
 margin-right: 20rpx;
 }
+button {
+  position:relative;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:14px;
+  padding-right:14px;
+  box-sizing:border-box;
+  font-size:18px;
+  text-align:center;
+  text-decoration:none;
+  line-height:2.55555556;
+  border-radius:5px;
+  -webkit-tap-highlight-color:transparent;
+  overflow:hidden;
+  
+  }
+
+  .button {
+    width: 100%;
+    background: white;
+    border: none;
+    text-align: left;
+    padding: 7px 10px;
+    margin: 0px;
+    line-height: 1.6;
+    border-radius: 0;
+   }
+   
+   .button::after {
+    border: none;
+    border-radius: 0;
+   }
+   
+   .button_title {
+    font-size: 1rem;
+   }
