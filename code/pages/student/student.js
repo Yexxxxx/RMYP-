@@ -11,6 +11,7 @@ Page({
     gender:'',
     height:'',
     weight:'',
+    step:"请开通微信步数",
   },
 
   //注销
@@ -24,6 +25,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    var that = this
     
   },
 
@@ -38,6 +40,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (options) {
+    var that = this
     const db = wx.cloud.database() 
     db.collection('data').where({
       "_openid":app.globalData._openid
@@ -72,9 +75,34 @@ Page({
              }
           }
         })     
+        that.gotweRun()
      
   },
-
+  goto_info:function(){
+    wx.navigateTo({
+      url: '../index1/index1',
+    })
+  },
+  gotweRun:function(){
+    var that = this
+    wx.getWeRunData({
+      success:res=> {
+        //console.log("cloudID:"+res.cloudID)    
+        wx.cloud.callFunction({
+          name: 'weRun',
+          data: {
+            weRunData: wx.cloud.CloudID(res.cloudID)
+          },
+        }).then(resData=>{    
+          that.setData({
+            step:resData.result.event.weRunData.data.stepInfoList[30].step
+          })
+          console.log(resData) //注意这里
+           console.log(resData.result.event.weRunData.data.stepInfoList[30])//今天的步数
+          })
+       },
+  })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

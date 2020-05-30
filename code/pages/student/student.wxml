@@ -31,12 +31,15 @@
             <text class='left'> 年龄：</text>
             <text class='right'>{{age}}</text>
     </view>
-   
-    <view class='item' bindtap='exit'>
-            <text class='left'>退出：</text>
-             <text class='right'>>>></text>
+   <view class='item'>
+            <text class='left'> 步数：</text>
+            <text class='right'>{{step}}</text>
     </view>
-    <view >
+    <view class='item' bindtap='goto_info'>
+            <text class='left'>相关：</text>
+             <text class='right' >>>></text>
+    </view>
+    <view>
           <button class='button' open-type="feedback">
             <text class='button_title'>意见反馈</text>
       </button>
