@@ -4,14 +4,9 @@
   background-color: rgb(139, 178, 201);
   z-index: -3;
 }
-.unitSign{
+.units{
   position: relative;
-  top: -32px;
-  right: 25px;
-  float: right;
-  line-height: 50rpx;
-  font-size: 30rpx;
-  color: #fff;
+  left: 35%;
 }
 .container{
   position: absolute;
@@ -64,7 +59,7 @@
  .tip view{
    line-height: 80rpx;
    color: #f1f1f1;
-   font-size: 24rpx;
+   font-size: 20rpx;
    background-color:rgb(112, 148, 168);
    flex: 1;
    padding-left: 40rpx;
@@ -76,6 +71,7 @@
 
  .physical-condition, .bmr-value,.maxh-heart,.minh-heart{
     margin: 0 4rpx 0 0;
+    /* font-size: ; */
  }
 
 .input-container {
@@ -176,7 +172,7 @@
 .table .row:last-child{
    border-bottom: 0rpx;
 }
-/
+
 /* .pos .bt:before{
   content: "";
   display: block;

@@ -14,10 +14,10 @@
 		</view>
 		</view>
 		<view class="tip heart-concert">
-			<view class="bmr-value">基础代谢率：<text class="">{{BMR}}</text></view>
-			<view class="maxh-heart">最大心率：<text class="">\n{{max_heartbeat}}</text></view>
-			<view class="minh-heart">最小心率：<text class="">\n{{min_heartbeat}}</text></view>
-			<view class="bmd-value">骨密度：<text class="">\n{{BMD}}</text></view>
+			<view class="bmr-value">基础代谢率：<text class="">\n{{BMR}}<text class="units">kcal</text></text></view>
+			<view class="maxh-heart">最大运动心率：<text class="">\n{{max_heartbeat}}<text class="units">次/分钟</text></text></view>
+			<view class="minh-heart">最小运动心率：<text class="">\n{{min_heartbeat}}<text class="units">次/分钟</text></text></view>
+			<view class="bmd-value">骨密度：<text class="">\n{{BMD}}<text class="units">g/cm²</text></text></view>
 		</view>
 		<view class="tip first-tip">
 			<view class="physical-condition">身体状况：<text class="">{{physicalCondition}}</text></view>
