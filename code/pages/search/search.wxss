@@ -91,14 +91,13 @@
   overflow: scroll;
   margin: 0 auto;
   height: 700px;
-
 }
  
 .record-item {
   margin-top: 10rpx;
   background-color: white;
-  padding-bottom: 5rpx;
-  padding-top: 5rpx;
+  padding-bottom: 0rpx;
+  padding-top: 0rpx;
   font-size: 30rpx;
 }
  
