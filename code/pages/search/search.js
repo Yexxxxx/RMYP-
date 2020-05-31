@@ -182,15 +182,15 @@ Page({
         "imageUrl": "https://pic.downk.cc/item/5ed3b32bc2a9a83be5974521.gif",
         "content": "波比+跳远"
     },{
-      "id": "1",
+      "id": "2",
       "imageUrl": "https://pic.downk.cc/item/5ed3b32bc2a9a83be5974529.gif",
       "content": "波比跳"
   },{
-    "id": "1",
+    "id": "3",
     "imageUrl": "https://pic.downk.cc/item/5ed3b32bc2a9a83be597452d.gif",
     "content": "登山跑"
 },{
-  "id": "1",
+  "id": "4",
   "imageUrl": "https://pic.downk.cc/item/5ed3b32bc2a9a83be5974532.gif",
   "content": "熊爬"
 }
@@ -205,7 +205,7 @@ Page({
   pagechange: function (e) {
     if ("touch" === e.detail.source) {
       let currentPageIndex = this.data.currentIndex
-      currentPageIndex = (currentPageIndex + 1) % 3
+      currentPageIndex = (currentPageIndex + 1) % 4
       this.setData({
         currentIndex: currentPageIndex
       })
