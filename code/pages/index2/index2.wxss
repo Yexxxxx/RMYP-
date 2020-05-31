@@ -6,7 +6,7 @@
 }
 .units{
   position: relative;
-  left: 35%;
+  left: 16%;
 }
 .container{
   position: absolute;

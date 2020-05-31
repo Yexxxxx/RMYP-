@@ -1,6 +1,6 @@
 /**index.wxss**/
-
-.bannerSwiper {
+/* 轮播图 */
+/* .bannerSwiper {
   height: 282rpx;
   width: 100vw;
   position: absolute;
@@ -43,7 +43,8 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-}
+} */
+/* 轮播图 */
  
 .title {
   width: 100%;
