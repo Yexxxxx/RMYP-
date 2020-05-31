@@ -1,1 +1,4 @@
-<view></view>
+<view>
+  <web-view src="https://www.cnblogs.com/22222222z/">本小程序小组博客</web-view>
+  <text>小组成员\n叶翔\n徐进东\n陶云亮\n陈炜波\n吴戈\n孙子宣\n陈斌\n巫资昊</text>
+</view>
