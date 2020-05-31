@@ -26,7 +26,7 @@ Page({
    */
   onLoad: function () {
     var that = this
-    
+    that.gotweRun()
   },
 
   /**
@@ -75,7 +75,6 @@ Page({
              }
           }
         })     
-        that.gotweRun()
      
   },
   goto_info:function(){
@@ -102,7 +101,7 @@ Page({
           })
        },
        fail:function(){
-          console.log("fail");
+          
        }
   })
   },
