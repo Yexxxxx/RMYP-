@@ -101,6 +101,9 @@ Page({
            console.log(resData.result.event.weRunData.data.stepInfoList[30])//今天的步数
           })
        },
+       fail:function(){
+          console.log("fail");
+       }
   })
   },
   /**

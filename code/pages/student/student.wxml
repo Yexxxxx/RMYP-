@@ -31,7 +31,7 @@
             <text class='left'> 年龄：</text>
             <text class='right'>{{age}}</text>
     </view>
-   <view class='item'>
+   <view class='item' bindtap='gotweRun'>
             <text class='left'> 步数：</text>
             <text class='right'>{{step}}</text>
     </view>
@@ -44,8 +44,5 @@
             <text class='button_title'>意见反馈</text>
       </button>
       </view>
-       
-
-  
 </view>
 
