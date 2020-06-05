@@ -5,7 +5,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -29,9 +29,9 @@
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
+	"libVersion": "2.11.1",
 	"appid": "wxd4658988b71921dc",
-	"projectname": "%E4%BD%93%E6%B5%8B01",
+	"projectname": "Run.py",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -108,6 +108,13 @@
 					"id": -1,
 					"name": "pages/index2/index2",
 					"pathName": "pages/index2/index2",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/trainer/trainer",
+					"pathName": "pages/trainer/trainer",
 					"scene": null
 				}
 			]

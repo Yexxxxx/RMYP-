@@ -7,33 +7,49 @@ Page({
    */
   data: {
     age:"",
+    name:"",
+    src:"",
     phone:"",
     gender:'',
     height:'',
     weight:'',
     step:"请开通微信步数",
+    isHide_2:true,
+    login_flag:false,
   },
 
   //注销
-  goto_logout:function(){
+  goto_into:function(){
+    var that = this
     wx.navigateTo({
-      url: '../unsign/unsign',
+      url: '../index/index',
     })
   },
   
+  get_login_flag:function(){
+    var that = this
+    var login = app.globalData.login_flag
+    console.log(login)
+    if (login == true ){
+      that.setData({
+        login_flag:login,
+        isHide_2:false
+      })
+      that.gotweRun()
+  }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    var that = this
-    that.gotweRun()
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -42,6 +58,7 @@ Page({
   onShow: function (options) {
     var that = this
     const db = wx.cloud.database() 
+    that.get_login_flag()
     db.collection('data').where({
       "_openid":app.globalData._openid
       }).get({
@@ -58,24 +75,25 @@ Page({
         "_openid":app.globalData._openid
         }).get({
           success:res=>{
+            console.log(res.data[0])
+            console.log(res.data[0].name)
             if(res.data[0].gender==1){
-             this.setData({
-               gender:"男",
+             that.setData({
+              gender:"男",
              })
             }
              if(res.data[0].gender==2){
-              this.setData({
+              that.setData({
                 gender:"女",
               })
              }
              if(res.data[0].gender==0){
-              this.setData({
+              that.setData({
                 gender:"未知",
               })
              }
           }
         })     
-     
   },
   goto_info:function(){
     wx.navigateTo({

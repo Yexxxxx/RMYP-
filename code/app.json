@@ -1,20 +1,20 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/index2/index2",
+    "pages/index/index",
+    
     "pages/index1/index1",
     "pages/analysisPart/ana",
+
     "pages/search/search",
-    "pages/404/404",
     
-    "pages/student/student",
-    "pages/trainer/trainer"
+    "pages/student/student"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#8FACBD",
     "navigationBarTitleText": "R号体测档案",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#a9b7b7",
@@ -22,26 +22,26 @@
     "borderStyle": "black",
     "list": [
       {
-        "selectedIconPath": "images/tabBar/index.png",
-        "iconPath": "images/tabBar/index.png",
+        "selectedIconPath": "images/tabBar/iconfont icon-shouye (1).png",
+        "iconPath": "images/tabBar/iconfont icon-shouye.png",
         "pagePath": "pages/index2/index2",
         "text": "首页"
       },
       {
-        "selectedIconPath": "/images/tabBar/search.png",
-        "iconPath": "images/tabBar/search.png",
+        "selectedIconPath": "/images/tabBar/健身 (1).png",
+        "iconPath": "images/tabBar/健身.png",
         "pagePath": "pages/search/search",
         "text": "徒手健身"
       },
       {
-        "selectedIconPath": "images/tabBar/ana.png",
-        "iconPath": "images/tabBar/ana.png",
+        "selectedIconPath": "images/tabBar/iconfont icon-baobia (1).png",
+        "iconPath": "images/tabBar/iconfont icon-baobia.png",
         "pagePath": "pages/analysisPart/ana",
         "text": "分析图"
       },
       {
-        "selectedIconPath": "images/tabBar/my.png",
-        "iconPath": "images/tabBar/my.png",
+        "selectedIconPath": "images/tabBar/iconfont icon-yonghu (1).png",
+        "iconPath": "images/tabBar/iconfont icon-yonghu.png",
         "pagePath": "pages/student/student",
         "text": "我的"
       }

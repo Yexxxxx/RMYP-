@@ -86,12 +86,6 @@
   margin-top: 10rpx;
 }
  
-.swiper-items{
-height: 100%;
-}
-.scroll-views{
-height: 100%;
-}
 .swiper {
   width: 90%;
   flex: 1;

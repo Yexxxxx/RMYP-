@@ -8,12 +8,15 @@ Page({
     src:"",
     src_1:"../../images/coach/app图标.jpg",
     gender:"",
-    isHide:false,
+    // isHide:false,
     _openid:null,
     status:1,
   },  
 onLoad:function(options) {
     //查看是否授权
+    
+  },
+  onShow:function(){
     var that = this;
     wx.getSetting({
       success: function(res) {
@@ -25,21 +28,23 @@ onLoad:function(options) {
         }
       }
     });
-    that.getOpenid();
     
   },
   getOpenid() {
     let that = this;
     wx.cloud.callFunction({
      name:'getOpenid',
-     complete: res => {
+     success: res => {
       var openid = res.result.openid;
       app.globalData._openid=openid;//全局变量
+      app.globalData.login_flag = true
+      console.log(app.globalData.login_flag)
       that.setData({
        _openid:openid
       })
       that.status();
-     }
+     },
+     
     })
   },
   status:function(){
@@ -62,15 +67,12 @@ onLoad:function(options) {
     if (res.detail.userInfo) {
       //用户按了允许授权按钮
       var that = this;
-      
+      that.getOpenid();
       // 获取到用户的信息了，打印到控制台上看下
       console.log("用户的信息如下：");
       console.log(res.detail.userInfo);
       let info = res.detail.userInfo.nickName;
-      //授权成功后,通过改变 isHide 的值，让实现页面显示出来，把授权页面隐藏起来
       that.setData({
-        canIUse:false,
-        isHide: true,
         name:info,
         src:res.detail.userInfo.avatarUrl,
         gender:res.detail.userInfo.gender,
@@ -88,6 +90,7 @@ onLoad:function(options) {
           },
           success: res => {
               console.log("更新成功");
+              that.goto_student()
           }
       })
   }else{
@@ -99,9 +102,11 @@ onLoad:function(options) {
         },
         success: res => {
           console.log("插入成功");
+          that.goto_student()
         }
       })
-      }} else {
+      }} 
+      else {
       //用户按了拒绝按钮
       wx.showModal({
         title: '警告',

@@ -35,6 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    _openid:null
+    _openid:null,
+    login_flag:false,
   }
 })

@@ -32,9 +32,11 @@ Page({
   },
   //gender性别映射
   onLoad: function () {
+    wx.showShareMenu()
+  },
+  onShow:function(){
     var that = this
     that.get_data();
-    wx.showShareMenu()
   },
   get_openid:function(){
     let that = this
@@ -132,18 +134,16 @@ Page({
     if (!this.data.age) {   
       this.calculate();
       this.weightStandardCalculate();
-   
+      this.physicalConditionCalculate();
       scorer:0;
     }else{  
       this.calculate();
       this.weightStandardCalculate();
       this.physicalConditionCalculate();
-      this.physicalConditionCalculate();
       this.bfrcalculate();
       this.BMDStandardCalculate();
       this.BMRStandardCalculate();
       this.heartbeatStandardCalculat()
-
     }
     console.log(this.data.time);
     console.log("查"+this.data.status)

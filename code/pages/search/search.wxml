@@ -8,7 +8,6 @@
 				<text>上肢</text>
 				<hr class="line-style" />
 			</view>
-
 			<view class="{{1 == currentIndex ? 'title-sel-selected' : 'title-sel'}}" bindtap='titleClick' data-idx='1'>
 				<text>下肢</text>
 				<hr class="line-style" />
@@ -26,46 +25,57 @@
 		<!--内容布局-->
 		<swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}' style="height:{{height}}px" bindscrolltolower='lower'>
 			<swiper-item class='swiper'>
+			<scroll-view scroll-x="false" scroll-y="true" class='scroll-views'>
 				<view wx:for="{{firstList}}" wx:for-item="item" class='record-item'>
 					<view class='name'>
 						<navigator url="/pages/photo/photo?id={{item.id}}">
 							<view class="school-list-info" index="{{index}}">
-								<image class="school-list-photo" src="{{item.imageUrl}}" />
+								<image class="school-list-photo" mode="aspectFit" src="{{item.imageUrl}}" />
 								<text class="school-list-desc">{{item.content}}</text>
 							</view>
 						</navigator>
 					</view>
 				</view>
+				</scroll-view>
 			</swiper-item>
+
 			<swiper-item class='swiper' class='swiper'>
+				<scroll-view scroll-x="false" scroll-y="true" class='scroll-views'>
 				<view wx:for="{{secondList}}" wx:for-item="item" class='record-item'>
 					<view class='name'>
 						<view class="school-list-info" index="{{index}}">
-							<image class="school-list-photo" src="{{item.imageUrl}}" />
+							<image class="school-list-photo" mode="aspectFit" src="{{item.imageUrl}}" />
 							<text class="school-list-desc">{{item.content}}</text>
 						</view>
 					</view>
 				</view>
+				</scroll-view>
 			</swiper-item>
+			
 			<swiper-item class='swiper' class='swiper'>
+			 <scroll-view scroll-x="false" scroll-y="true" class='scroll-views'>
 				<view wx:for="{{thirdList}}" wx:for-item="item" class='record-item'>
 					<view class='name'>
 						<view class="school-list-info" index="{{index}}">
-							<image class="school-list-photo" src="{{item.imageUrl}}" />
+							<image class="school-list-photo" mode="aspectFit" src="{{item.imageUrl}}" />
 							<text class="school-list-desc">{{item.content}}</text>
 						</view>
 					</view>
 				</view>
+				</scroll-view>
 			</swiper-item>
+			
 			<swiper-item class='swiper' class='swiper'>
+			<scroll-view scroll-x="false" scroll-y="true" class='scroll-views'>
 				<view wx:for="{{fourthList}}" wx:for-item="item" class='record-item'>
 					<view class='name'>
 						<view class="school-list-info" index="{{index}}">
-							<image class="school-list-photo" src="{{item.imageUrl}}" />
+							<image class="school-list-photo"  mode="aspectFit" src="{{item.imageUrl}}" />
 							<text class="school-list-desc">{{item.content}}</text>
 						</view>
 					</view>
 				</view>
+				</scroll-view>
 			</swiper-item>
 		</swiper>
 	</scroll-view>
