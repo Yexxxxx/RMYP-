@@ -37,6 +37,7 @@ Page({
   onShow:function(){
     var that = this
     that.get_data();
+    
   },
   get_openid:function(){
     let that = this
@@ -130,7 +131,8 @@ Page({
       })
       return false;
     }
-    
+    if (app.globalData.login_flag){
+  
     if (!this.data.age) {   
       this.calculate();
       this.weightStandardCalculate();
@@ -178,6 +180,12 @@ Page({
         console.log("插入成功");
         this.status();
       }
+  })
+}
+}
+else{
+  wx.showToast({
+    title: '请登入'
   })
 }
 },

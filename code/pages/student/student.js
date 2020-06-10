@@ -35,7 +35,6 @@ Page({
         login_flag:login,
         isHide_2:false
       })
-      that.gotweRun()
   }
   },
   /**
@@ -59,6 +58,7 @@ Page({
     var that = this
     const db = wx.cloud.database() 
     that.get_login_flag()
+    if(that.data.login_flag){
     db.collection('data').where({
       "_openid":app.globalData._openid
       }).get({
@@ -93,17 +93,39 @@ Page({
               })
              }
           }
-        })     
+        })
+      }     
   },
   goto_info:function(){
     wx.navigateTo({
       url: '../index1/index1',
     })
   },
+  getweRun_permit:function(){
+    wx.getSetting({
+      success: function(res) {
+        if (!res.authSetting['scope.werun']) {
+          that.setData({
+            step:"请在设置中授权微信步数"
+          })
+        } else {
+          console.log("微信步数授权");
+        }
+      }
+    })
+  },
   gotweRun:function(){
     var that = this
-    wx.getWeRunData({
-      success:res=> {
+    wx.getSetting({
+      success: function(res) {
+        if (!res.authSetting['scope.werun']) {
+          that.setData({
+            step:"请在设置中授权微信步数"
+          })
+        } else {
+          console.log("微信步数授权");
+          wx.getWeRunData({
+        success:res=> {
         //console.log("cloudID:"+res.cloudID)    
         wx.cloud.callFunction({
           name: 'weRun',
@@ -119,10 +141,13 @@ Page({
           })
        },
        fail:function(){
-          
+  
        }
-  })
-  },
+    })
+  }
+  }
+})
+},
   /**
    * 生命周期函数--监听页面隐藏
    */
