@@ -98,6 +98,7 @@ height: 100%;
   overflow: scroll;
   margin: 0 auto;
   height: 700px;
+  -webkit-overflow-scrolling: touch;
 }
  
 .record-item {
